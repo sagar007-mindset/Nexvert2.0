@@ -117,7 +117,7 @@ export function generateLlmsTxt() {
 
   let txt = `# Nexvert
 
-> Nexvert (https://nexvert.online) is a free online file converter with ${tools.length}+ browser-based tools for PDF, images, audio, video, archives and developer data. Files are processed on the user's own device with browser APIs and WebAssembly (ffmpeg.wasm, Tesseract OCR, pdf-lib, pdf.js) instead of being uploaded to a server. No account, no watermark, no installation.
+> Nexvert (${SITE_CANONICAL_DOMAIN}) is a free online file converter with ${tools.length}+ browser-based tools for PDF, images, audio, video, archives and developer data. Files are processed on the user's own device with browser APIs and WebAssembly (ffmpeg.wasm, Tesseract OCR, pdf-lib, pdf.js) instead of being uploaded to a server. No account, no watermark, no installation.
 
 ## Key facts
 - Price: free, no sign-up, no watermarks.
@@ -127,19 +127,19 @@ export function generateLlmsTxt() {
 - Formats: 50+ including PDF, DOCX, EPUB, Markdown, HTML, CSV, JSON, XML, YAML, JPG, PNG, WEBP, HEIC, GIF, BMP, SVG, MP3, WAV, OGG, M4A, MP4, WEBM, MOV, ZIP, TAR.
 
 ## Main sections
-- Homepage: https://nexvert.online/
-- All tools: https://nexvert.online/tools/
-- PDF tools: https://nexvert.online/pdf-tools/
-- Image tools: https://nexvert.online/image-tools/
-- Audio tools: https://nexvert.online/audio-tools/
-- Video tools: https://nexvert.online/video-tools/
-- Archive tools: https://nexvert.online/archive-tools/
-- Compression tools: https://nexvert.online/compression-tools/
-- Developer tools: https://nexvert.online/developer-tools/
-- Utilities: https://nexvert.online/utilities/
-- Guides: https://nexvert.online/guides/
-- Supported formats: https://nexvert.online/supported-formats/
-- How files are handled: https://nexvert.online/file-security/
+- Homepage: ${SITE_CANONICAL_DOMAIN}/
+- All tools: ${SITE_CANONICAL_DOMAIN}/tools/
+- PDF tools: ${SITE_CANONICAL_DOMAIN}/pdf-tools/
+- Image tools: ${SITE_CANONICAL_DOMAIN}/image-tools/
+- Audio tools: ${SITE_CANONICAL_DOMAIN}/audio-tools/
+- Video tools: ${SITE_CANONICAL_DOMAIN}/video-tools/
+- Archive tools: ${SITE_CANONICAL_DOMAIN}/archive-tools/
+- Compression tools: ${SITE_CANONICAL_DOMAIN}/compression-tools/
+- Developer tools: ${SITE_CANONICAL_DOMAIN}/developer-tools/
+- Utilities: ${SITE_CANONICAL_DOMAIN}/utilities/
+- Guides: ${SITE_CANONICAL_DOMAIN}/guides/
+- Supported formats: ${SITE_CANONICAL_DOMAIN}/supported-formats/
+- How files are handled: ${SITE_CANONICAL_DOMAIN}/file-security/
 `;
   for (const [label, filter] of groups) {
     const list = tools.filter(filter);
@@ -172,7 +172,7 @@ export function generateLlmsFullTxt() {
   const routes = PUBLIC_ROUTES.filter((r) => r.includeInSitemap !== false && !duplicates.has(r.path));
 
   let txt = `# Nexvert — full content export\n\n`;
-  txt += `> Complete text of every tool page on https://nexvert.online, for answer engines and\n`;
+  txt += `> Complete text of every tool page on ${SITE_CANONICAL_DOMAIN}, for answer engines and\n`;
   txt += `> AI assistants. Nexvert is a free file converter whose tools run entirely in the\n`;
   txt += `> visitor's own browser using WebAssembly — files are never uploaded to a server.\n`;
   txt += `> No account, no watermark, no installation. Last updated: ${SITE_LAST_UPDATED}.\n\n`;
@@ -241,7 +241,7 @@ export function generateLlmsFullTxt() {
   console.log(`✅ public/llms-full.txt generated (${pages} pages, ${kb} KB).`);
 }
 
-/** IndexNow key file: https://nexvert.online/<key>.txt must contain the key itself. */
+/** IndexNow key file: https://<host>/<key>.txt must contain the key itself. */
 export function writeIndexNowKey() {
   fs.writeFileSync(path.join(publicDir, `${INDEXNOW_KEY}.txt`), INDEXNOW_KEY, 'utf8');
 }

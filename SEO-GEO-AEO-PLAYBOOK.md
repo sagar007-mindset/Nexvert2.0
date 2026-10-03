@@ -1171,3 +1171,55 @@ the same account and remains a valid second corroboration.
 **Still outstanding:** `Nexvert2.0` has no **Website** field set. The old repo did, which is what
 made that link mutual. Until it is set on the new repo, `sameAs` points at a repo that does not
 point back — set it to `https://nexvert.online` in the repo's About panel.
+
+---
+
+## 25. Canonical origin is `https://nexvert.online` (apex)
+
+`SITE_URL` in `src/config/site.config.ts` is **`https://nexvert.online`**, the apex. Every
+canonical URL, sitemap entry, JSON-LD `@id` (Organization `@id` is
+`https://nexvert.online/#organization`), `og:url` and Markdown twin derives from it.
+
+### What this section replaces
+
+An earlier version of this section said the canonical origin had been switched to `www`. That was
+a misreading of an instruction and was reverted before it was ever published. It is recorded here
+because the near-miss is instructive: at that moment the live domains were configured to redirect
+the apex to `www`, so the *old* build (apex canonicals) was already in conflict with the
+redirect, and the tempting fix was to flip the code to `www`. The real fix was to decide the
+final origin first and make the domain settings and the code agree.
+
+### The rule: one origin, and the other host redirects to it
+
+The code and the Vercel domain settings must agree. With the apex as canonical:
+
+- **Vercel → Project → Settings → Domains:** `nexvert.online` serves the site;
+  `www.nexvert.online` should be set to **Redirect to `nexvert.online`** (308).
+- As of 2026-10-03 both hosts returned **200 with no redirect**, i.e. the site was reachable on
+  two origins at once. Canonical tags resolve that for search engines, but a redirect is cleaner
+  (one origin in logs, links and shares) and removes any reliance on crawlers honouring the tag.
+- Do **not** also add a `www` → apex redirect inside `vercel.json` while the dashboard has a
+  redirect configured the other way round: the two would loop and take the site down.
+
+### Hand-maintained copies
+
+Files that cannot import `SITE_URL` carry their own copy of the origin: `index.html` (canonical,
+`og:url`, `og:image`, `twitter:image`), `public/robots.txt` (`Sitemap:`),
+`public/.well-known/security.txt` (`Canonical:`), `scripts/generate-agent-skills.cjs`, and the
+README. `npm run seo:audit` **fails the build** if any of them names an `http(s)://` origin on
+this site (apex or www) that is not `SITE_URL`. The `llms.txt` generator and the audit's expected
+sitemap now read the shared constant instead of hardcoding the domain.
+
+### Deliberately on the apex regardless
+
+Email addresses (`support@nexvert.online`, `media@nexvert.online`, the `mailto:` in
+`security.txt`) belong to the apex; the brand string `nexvert.online` in `alternateName` and on
+the share image; and the Threads handle `@nexvert.online`.
+
+### Things only you can do
+
+- Set `www.nexvert.online` to redirect to the apex in Vercel (above).
+- **Search Console:** keep the existing `https://nexvert.online/` property, and submit
+  `https://nexvert.online/sitemap.xml` after the next deploy.
+- GitHub, X and Threads bio links should point at `https://nexvert.online` (the GitHub repo's
+  Website field already does).

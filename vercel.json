@@ -7,7 +7,7 @@
   "cleanUrls": false,
   "redirects": [
     {
-      "source": "/image-converter/:path*",
+      "source": "/image-converter/:path*/",
       "destination": "/",
       "statusCode": 301
     },
@@ -22,77 +22,77 @@
       "statusCode": 301
     },
     {
-      "source": "/document-tools/:path*",
+      "source": "/document-tools/:path*/",
       "destination": "/pdf-tools/",
       "statusCode": 301
     },
     {
-      "source": "/create-zip/:path*",
+      "source": "/create-zip/:path*/",
       "destination": "/create-archive/",
       "statusCode": 301
     },
     {
-      "source": "/audio-cutter/:path*",
+      "source": "/audio-cutter/:path*/",
       "destination": "/audio-trimmer/",
       "statusCode": 301
     },
     {
-      "source": "/mp3-cutter/:path*",
+      "source": "/mp3-cutter/:path*/",
       "destination": "/audio-trimmer/",
       "statusCode": 301
     },
     {
-      "source": "/audio-joiner/:path*",
+      "source": "/audio-joiner/:path*/",
       "destination": "/audio-merger/",
       "statusCode": 301
     },
     {
-      "source": "/audio-speed/:path*",
+      "source": "/audio-speed/:path*/",
       "destination": "/audio-speed-changer/",
       "statusCode": 301
     },
     {
-      "source": "/audio-booster/:path*",
+      "source": "/audio-booster/:path*/",
       "destination": "/audio-volume/",
       "statusCode": 301
     },
     {
-      "source": "/audio-normalizer/:path*",
+      "source": "/audio-normalizer/:path*/",
       "destination": "/audio-volume/",
       "statusCode": 301
     },
     {
-      "source": "/extract-frames/:path*",
+      "source": "/extract-frames/:path*/",
       "destination": "/extract-video-frames/",
       "statusCode": 301
     },
     {
-      "source": "/qr-generator/:path*",
+      "source": "/qr-generator/:path*/",
       "destination": "/qr-code-generator/",
       "statusCode": 301
     },
     {
-      "source": "/qr-scanner/:path*",
+      "source": "/qr-scanner/:path*/",
       "destination": "/qr-reader/",
       "statusCode": 301
     },
     {
-      "source": "/qr-code-scanner/:path*",
+      "source": "/qr-code-scanner/:path*/",
       "destination": "/qr-reader/",
       "statusCode": 301
     },
     {
-      "source": "/ocr/:path*",
+      "source": "/ocr/:path*/",
       "destination": "/image-to-text/",
       "statusCode": 301
     },
     {
-      "source": "/base64-encode-decode/:path*",
+      "source": "/base64-encode-decode/:path*/",
       "destination": "/base64-encode/",
       "statusCode": 301
     },
     {
-      "source": "/hash-generator/:path*",
+      "source": "/hash-generator/:path*/",
       "destination": "/sha256-generator/",
       "statusCode": 301
     }

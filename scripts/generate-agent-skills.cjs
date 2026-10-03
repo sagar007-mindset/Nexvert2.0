@@ -18,6 +18,7 @@ const crypto = require('crypto');
 
 const root = path.join(__dirname, '..');
 const outDir = path.join(root, 'public', '.well-known', 'agent-skills');
+// Must match SITE_URL in src/config/site.config.ts; `npm run seo:audit` fails if it drifts.
 const SITE = 'https://nexvert.online';
 
 /** Shared footer: every skill must disclose that there is no programmatic interface. */

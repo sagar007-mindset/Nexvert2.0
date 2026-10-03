@@ -8,7 +8,7 @@ import { CONVERSION_PAGES } from '../src/config/conversions.config.ts';
 import { GUIDES_DATA } from '../src/config/guides.config.ts';
 import { MASTER_UNIQUE_CONTENT } from '../src/config/unique-tool-content.ts';
 import { NO_TOOL_CONTENT } from '../src/config/page-content.ts';
-import { SITE_LAST_UPDATED } from '../src/config/site.config.ts';
+import { SITE_LAST_UPDATED, SITE_URL } from '../src/config/site.config.ts';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -73,8 +73,31 @@ if (/(?:@type['\"]\s*:\s*['\"]SearchAction|['\"]@type['\"]\s*:\s*['\"]SearchActi
 if (/meta name=["']keywords["']/i.test(indexHtml)) warnings.push('Legacy meta keywords remain in index.html.');
 if (!/rel=["']canonical["']/i.test(indexHtml)) errors.push('index.html is missing a canonical link.');
 if (!/meta name=["']description["']/i.test(indexHtml)) errors.push('index.html is missing a meta description.');
-if (!/Sitemap:\s*https:\/\/nexvert\.online\/sitemap\.xml/i.test(fs.readFileSync(path.join(root, 'public/robots.txt'), 'utf8'))) {
+if (!fs.readFileSync(path.join(root, 'public/robots.txt'), 'utf8').includes(`Sitemap: ${SITE_URL}/sitemap.xml`)) {
   warnings.push('robots.txt does not advertise the canonical sitemap URL.');
+}
+
+// Hand-maintained files that cannot import SITE_URL (static HTML, plain text, plain-JS scripts)
+// carry their own copy of the domain. If SITE_URL changes and one of these is missed, a page
+// ends up declaring a canonical on the wrong host, which search engines treat as a conflicting
+// signal. Flag any URL on this site's apex or www origin that is not SITE_URL itself. Email
+// addresses and social handles are not matched because they have no `http(s)://` prefix.
+{
+  const handMaintained = [
+    'index.html',
+    'public/robots.txt',
+    'public/.well-known/security.txt',
+    'scripts/generate-agent-skills.cjs',
+    'scripts/generate-sitemap.js',
+    'README.md',
+  ];
+  for (const rel of handMaintained) {
+    const abs = path.join(root, rel);
+    if (!fs.existsSync(abs)) continue;
+    const text = fs.readFileSync(abs, 'utf8');
+    const stray = [...new Set([...text.matchAll(/https?:\/\/(?:www\.)?nexvert\.online/g)].map((m) => m[0]))].filter((o) => o !== SITE_URL);
+    if (stray.length) errors.push(`${rel} references ${stray.join(', ')} but SITE_URL is ${SITE_URL}.`);
+  }
 }
 
 // Content Signals (https://contentsignals.org/). Checked per group, not once: under RFC 9309 a
@@ -157,7 +180,7 @@ for (const mode of [...new Set(navbarModes)]) {
 const sitemap = fs.readFileSync(path.join(root, 'public/sitemap.xml'), 'utf8');
 const sitemapLocs = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => m[1]);
 const sitemapSet = new Set(sitemapLocs);
-const expectedSitemap = PUBLIC_ROUTES.filter(r => r.includeInSitemap !== false).map(r => `https://nexvert.online${normalize(r.path)}`);
+const expectedSitemap = PUBLIC_ROUTES.filter(r => r.includeInSitemap !== false).map(r => `${SITE_URL}${normalize(r.path)}`);
 for (const url of expectedSitemap) if (!sitemapSet.has(url)) warnings.push(`Current public sitemap is missing ${url}; regenerate during build.`);
 
 console.log('SEO AUDIT');

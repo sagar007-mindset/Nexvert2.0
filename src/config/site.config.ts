@@ -7,11 +7,17 @@
  * Single source of truth for site-wide branding, canonical domain, and contact emails.
  */
 export const SITE_NAME = 'Nexvert';
+// Canonical origin: the apex, https://nexvert.online. The www host must 308-redirect to it
+// (Vercel project > Settings > Domains > www.nexvert.online > Redirect to nexvert.online).
+// Every canonical URL, sitemap entry, schema @id and Open Graph URL derives from this
+// constant. If the host actually serving the site ever disagrees with it, each page
+// declares a canonical that is not where it lives, which search engines treat as a
+// conflicting signal. `npm run seo:audit` fails if a hand-maintained file names another origin.
 export const SITE_URL = 'https://nexvert.online';
 export const SITE_CANONICAL_DOMAIN = SITE_URL;
 export const SUPPORT_EMAIL = 'support@nexvert.online';
 export const MEDIA_EMAIL = 'media@nexvert.online';
-export const BLOG_URL = 'https://nexvert.online/guides/';
+export const BLOG_URL = `${SITE_URL}/guides/`;
 
 /**
  * Date of the last significant content update, used as <lastmod> in sitemap.xml and as
