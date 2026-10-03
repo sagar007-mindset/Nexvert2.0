@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Nexvert
 
 Free online file converter — https://nexvert.online
@@ -53,3 +54,6 @@ security headers. Unknown URLs are served `dist/404.html` with a real 404 status
 
 Do not add `Cross-Origin-Embedder-Policy` headers: the single-threaded ffmpeg build does not need
 them, and they block the video engine's worker script.
+=======
+# Nexvert2.0
+>>>>>>> 42a738dbec1dd823c1a82c020a3f11760311e5e3
