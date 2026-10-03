@@ -1,0 +1,17 @@
+{
+  "name": "Nexvert — Free Online File Converter & Tools",
+  "short_name": "Nexvert",
+  "description": "Free online file converter with 190+ tools for PDF, images, audio, video, archives and developer data. Files are processed in your browser, not uploaded.",
+  "id": "/",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "theme_color": "#dc2626",
+  "background_color": "#ffffff",
+  "categories": ["utilities", "productivity"],
+  "icons": [
+    { "src": "/android-chrome-192x192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/android-chrome-512x512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "/maskable-icon-512x512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

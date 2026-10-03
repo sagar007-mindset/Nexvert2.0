@@ -1,0 +1,290 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "framework": null,
+  "trailingSlash": true,
+  "cleanUrls": false,
+  "redirects": [
+    {
+      "source": "/image-converter/:path*",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/:path*/index.html",
+      "destination": "/:path*/",
+      "statusCode": 301
+    },
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/document-tools/:path*",
+      "destination": "/pdf-tools/",
+      "statusCode": 301
+    },
+    {
+      "source": "/create-zip/:path*",
+      "destination": "/create-archive/",
+      "statusCode": 301
+    },
+    {
+      "source": "/audio-cutter/:path*",
+      "destination": "/audio-trimmer/",
+      "statusCode": 301
+    },
+    {
+      "source": "/mp3-cutter/:path*",
+      "destination": "/audio-trimmer/",
+      "statusCode": 301
+    },
+    {
+      "source": "/audio-joiner/:path*",
+      "destination": "/audio-merger/",
+      "statusCode": 301
+    },
+    {
+      "source": "/audio-speed/:path*",
+      "destination": "/audio-speed-changer/",
+      "statusCode": 301
+    },
+    {
+      "source": "/audio-booster/:path*",
+      "destination": "/audio-volume/",
+      "statusCode": 301
+    },
+    {
+      "source": "/audio-normalizer/:path*",
+      "destination": "/audio-volume/",
+      "statusCode": 301
+    },
+    {
+      "source": "/extract-frames/:path*",
+      "destination": "/extract-video-frames/",
+      "statusCode": 301
+    },
+    {
+      "source": "/qr-generator/:path*",
+      "destination": "/qr-code-generator/",
+      "statusCode": 301
+    },
+    {
+      "source": "/qr-scanner/:path*",
+      "destination": "/qr-reader/",
+      "statusCode": 301
+    },
+    {
+      "source": "/qr-code-scanner/:path*",
+      "destination": "/qr-reader/",
+      "statusCode": 301
+    },
+    {
+      "source": "/ocr/:path*",
+      "destination": "/image-to-text/",
+      "statusCode": 301
+    },
+    {
+      "source": "/base64-encode-decode/:path*",
+      "destination": "/base64-encode/",
+      "statusCode": 301
+    },
+    {
+      "source": "/hash-generator/:path*",
+      "destination": "/sha256-generator/",
+      "statusCode": 301
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/:slug.md",
+      "destination": "/:slug/index.md"
+    },
+    {
+      "source": "/:parent/:slug.md",
+      "destination": "/:parent/:slug/index.md"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(self), microphone=(self), geolocation=(), payment=()"
+        },
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=31536000; includeSubDomains"
+        },
+        {
+          "key": "Link",
+          "value": "</llms.txt>; rel=\"alternate\"; type=\"text/plain\"; title=\"LLM summary\", </llms-full.txt>; rel=\"alternate\"; type=\"text/plain\"; title=\"LLM full content\""
+        }
+      ]
+    },
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/ffmpeg/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800, stale-while-revalidate=86400"
+        }
+      ]
+    },
+    {
+      "source": "/tesseract/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800, stale-while-revalidate=86400"
+        }
+      ]
+    },
+    {
+      "source": "/(.*).png",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400"
+        }
+      ]
+    },
+    {
+      "source": "/favicon.ico",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400"
+        }
+      ]
+    },
+    {
+      "source": "/site.webmanifest",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/manifest+json; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "source": "/sitemap.xml",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/xml; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "source": "/robots.txt",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/plain; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "source": "/llms.txt",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/plain; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "source": "/llms-full.txt",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/plain; charset=utf-8"
+        },
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600"
+        }
+      ]
+    },
+    {
+      "source": "/.well-known/agent-skills/index.json",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/json; charset=utf-8"
+        },
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600"
+        }
+      ]
+    },
+    {
+      "source": "/(.*).md",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/markdown; charset=utf-8"
+        },
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600"
+        }
+      ]
+    },
+    {
+      "source": "/.well-known/agent-skills/:name/SKILL.md",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/markdown; charset=utf-8"
+        },
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600"
+        }
+      ]
+    }
+  ]
+}

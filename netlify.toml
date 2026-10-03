@@ -1,0 +1,239 @@
+[build]
+  publish = "dist"
+  command = "npm run build"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# Notifies Bing/Yandex/Seznam (IndexNow) about all sitemap URLs after each production deploy.
+[[plugins]]
+  package = "/netlify/plugins/indexnow"
+
+# Every public route is pre-rendered to dist/<route>/index.html, so no SPA catch-all
+# is needed. Unknown URLs fall through to dist/404.html with a real 404 status
+# (Netlify serves 404.html automatically), which avoids "soft 404" pages in Google.
+
+# Legacy / duplicate URLs -> canonical pages
+[[redirects]]
+  from = "/image-converter/*"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/document-tools/*"
+  to = "/pdf-tools/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/create-zip/*"
+  to = "/create-archive/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/audio-cutter/*"
+  to = "/audio-trimmer/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/mp3-cutter/*"
+  to = "/audio-trimmer/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/audio-joiner/*"
+  to = "/audio-merger/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/audio-speed/*"
+  to = "/audio-speed-changer/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/audio-booster/*"
+  to = "/audio-volume/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/audio-normalizer/*"
+  to = "/audio-volume/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/extract-frames/*"
+  to = "/extract-video-frames/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/qr-generator/*"
+  to = "/qr-code-generator/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/qr-scanner/*"
+  to = "/qr-reader/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/qr-code-scanner/*"
+  to = "/qr-reader/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/ocr/*"
+  to = "/image-to-text/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/base64-encode-decode/*"
+  to = "/base64-encode/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/hash-generator/*"
+  to = "/sha256-generator/"
+  status = 301
+  force = true
+
+# ---------- Headers ----------
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Frame-Options = "SAMEORIGIN"
+    Permissions-Policy = "camera=(self), microphone=(self), geolocation=(), payment=()"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains"
+
+# Vite emits content-hashed file names, so these can be cached forever.
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Large WebAssembly engines (ffmpeg ~31 MB, OCR ~12 MB + languages). Not hashed, so
+# cache for a week and let the browser revalidate afterwards.
+[[headers]]
+  for = "/ffmpeg/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800, stale-while-revalidate=86400"
+
+[[headers]]
+  for = "/tesseract/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800, stale-while-revalidate=86400"
+
+[[headers]]
+  for = "/*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+[[headers]]
+  for = "/favicon.ico"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+[[headers]]
+  for = "/site.webmanifest"
+  [headers.values]
+    Content-Type = "application/manifest+json; charset=utf-8"
+
+[[headers]]
+  for = "/sitemap.xml"
+  [headers.values]
+    Content-Type = "application/xml; charset=utf-8"
+
+[[headers]]
+  for = "/robots.txt"
+  [headers.values]
+    Content-Type = "text/plain; charset=utf-8"
+
+[[headers]]
+  for = "/llms.txt"
+  [headers.values]
+    Content-Type = "text/plain; charset=utf-8"
+
+# Full-content export for answer engines. Served as plain text and allowed cross-origin so
+# AI clients that fetch it from a different origin are not blocked by CORS.
+[[headers]]
+  for = "/llms-full.txt"
+  [headers.values]
+    Content-Type = "text/plain; charset=utf-8"
+    Access-Control-Allow-Origin = "*"
+    Cache-Control = "public, max-age=3600"
+
+# Markdown twins of every page (dist/<route>/index.md), written by scripts/prerender.js.
+# Served as text/markdown so agents get a readable document instead of a download, and
+# CORS-open because AI clients often fetch them from another origin.
+[[headers]]
+  for = "/*.md"
+  [headers.values]
+    Content-Type = "text/markdown; charset=utf-8"
+    Access-Control-Allow-Origin = "*"
+    Cache-Control = "public, max-age=3600"
+
+# Two conventions exist for Markdown twins: "<url>index.md" (used by Cloudflare's docs, and what
+# this site generates and links) and "<url>.md" (append .md to the address). This rewrite serves
+# the same file for the second form so agents using either convention find it. Status 200, not a
+# redirect, so the content is returned directly. Real files still win over this rule, so nothing
+# that actually exists on disk is shadowed.
+[[redirects]]
+  from = "/:slug.md"
+  to = "/:slug/index.md"
+  status = 200
+
+[[redirects]]
+  from = "/:parent/:slug.md"
+  to = "/:parent/:slug/index.md"
+  status = 200
+
+# RFC 8288 Link header advertising the machine-readable summaries, so an agent can discover
+# them from a HEAD request without parsing HTML. Scoped to /* on purpose: under HTTP/2 HPACK a
+# header repeated identically across responses costs almost nothing after the first.
+# Per-page Markdown twins cannot be advertised this way (each needs its own URL and Netlify
+# header rules take no variables) — those are announced by <link rel="alternate"> in the HTML.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Link = '''</llms.txt>; rel="alternate"; type="text/plain"; title="LLM summary", </llms-full.txt>; rel="alternate"; type="text/plain"; title="LLM full content"'''
+
+# Agent Skills Discovery (Cloudflare RFC v0.2.0). The spec requires index.json as
+# application/json and SKILL.md as text/markdown, and recommends CORS so browser-based agents
+# can read them. SKILL.md files are already covered by the /*.md rule above.
+[[headers]]
+  for = "/.well-known/agent-skills/index.json"
+  [headers.values]
+    Content-Type = "application/json; charset=utf-8"
+    Access-Control-Allow-Origin = "*"
+    Cache-Control = "public, max-age=3600"
+
+# Explicit rule for skill documents. The /*.md rule above may not match nested paths depending
+# on glob semantics, and the RFC requires text/markdown, so this is stated rather than assumed.
+[[headers]]
+  for = "/.well-known/agent-skills/*/SKILL.md"
+  [headers.values]
+    Content-Type = "text/markdown; charset=utf-8"
+    Access-Control-Allow-Origin = "*"
+    Cache-Control = "public, max-age=3600"

@@ -1,0 +1,192 @@
+@import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Inter Variable", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-display: "Space Grotesk Variable", "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+}
+
+
+/* Nexvert shared UI consistency and responsive safeguards */
+html {
+  min-width: 320px;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  overflow-x: hidden;
+  background: #f8fafc;
+}
+
+.dark body {
+  background: #09090b;
+}
+
+.nexvert-tool-page {
+  width: 100%;
+  min-width: 0;
+}
+
+.nexvert-tool-page img,
+.nexvert-tool-page video,
+.nexvert-tool-page canvas,
+.nexvert-tool-page svg {
+  max-width: 100%;
+}
+
+.nexvert-tool-page pre,
+.nexvert-tool-page code,
+.nexvert-tool-page table {
+  max-width: 100%;
+}
+
+.nexvert-tool-page pre {
+  overflow-x: auto;
+}
+
+.nexvert-tool-page table {
+  display: block;
+  overflow-x: auto;
+}
+
+/* Tool families that were previously built around dark-only headings now inherit the site theme. */
+.nexvert-tool-page h1.text-white,
+.nexvert-tool-page h1.text-neutral-100 {
+  color: rgb(15 23 42) !important;
+}
+
+.dark .nexvert-tool-page h1.text-white,
+.dark .nexvert-tool-page h1.text-neutral-100 {
+  color: rgb(255 255 255) !important;
+}
+
+.nexvert-tool-page h1.text-white + p.text-neutral-400,
+.nexvert-tool-page h1.text-neutral-100 + p.text-neutral-400 {
+  color: rgb(71 85 105) !important;
+}
+
+.dark .nexvert-tool-page h1.text-white + p.text-neutral-400,
+.dark .nexvert-tool-page h1.text-neutral-100 + p.text-neutral-400 {
+  color: rgb(161 161 170) !important;
+}
+
+@media (max-width: 1023px) {
+  .nexvert-tool-page {
+    overflow-x: hidden;
+  }
+}
+
+@media (max-width: 639px) {
+  .nexvert-tool-page h1 {
+    overflow-wrap: anywhere;
+  }
+
+  .nexvert-tool-page input,
+  .nexvert-tool-page select,
+  .nexvert-tool-page textarea,
+  .nexvert-tool-page button {
+    max-width: 100%;
+  }
+}
+
+
+/* Nexvert production layout foundation */
+:root {
+  --nexvert-content-gutter: clamp(1rem, 3vw, 2rem);
+  --nexvert-content-max: 72rem;
+}
+
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+button,
+a,
+input,
+select,
+textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button,
+[role="button"] {
+  touch-action: manipulation;
+}
+
+.nexvert-tool-page {
+  max-width: var(--nexvert-content-max);
+  margin-inline: auto;
+  padding-inline: var(--nexvert-content-gutter);
+  box-sizing: border-box;
+}
+
+.nexvert-tool-page > * {
+  min-width: 0;
+}
+
+.nexvert-tool-page h1,
+.nexvert-tool-page h2,
+.nexvert-tool-page h3 {
+  overflow-wrap: anywhere;
+}
+
+.nexvert-tool-page img,
+.nexvert-tool-page video,
+.nexvert-tool-page canvas,
+.nexvert-tool-page iframe {
+  max-inline-size: 100%;
+}
+
+.nexvert-tool-page pre,
+.nexvert-tool-page code {
+  max-inline-size: 100%;
+}
+
+.nexvert-tool-page pre {
+  overflow: auto;
+}
+
+.nexvert-tool-page table {
+  max-inline-size: 100%;
+}
+
+.nexvert-tool-page .overflow-x-auto {
+  -webkit-overflow-scrolling: touch;
+  scrollbar-gutter: stable;
+}
+
+@media (max-width: 1023px) {
+  .nexvert-tool-page {
+    width: 100%;
+    overflow-x: clip;
+  }
+}
+
+@media (max-width: 639px) {
+  .nexvert-tool-page {
+    padding-inline: 0.75rem;
+  }
+
+  .nexvert-tool-page input,
+  .nexvert-tool-page select,
+  .nexvert-tool-page textarea,
+  .nexvert-tool-page button {
+    max-inline-size: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

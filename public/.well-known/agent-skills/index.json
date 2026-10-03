@@ -1,0 +1,47 @@
+{
+  "$schema": "https://schemas.agentskills.io/discovery/0.2.0/schema.json",
+  "skills": [
+    {
+      "name": "convert-image-formats",
+      "type": "skill-md",
+      "description": "Choose between and convert JPG, PNG, WEBP, HEIC, AVIF, GIF, BMP and SVG. Use when deciding which image format to use, or converting iPhone HEIC photos for compatibility.",
+      "url": "/.well-known/agent-skills/convert-image-formats/SKILL.md",
+      "digest": "sha256:6b7a7175a112d8189010782eee753b2f98f12882f3dba2f2c7955d48337ab2d9"
+    },
+    {
+      "name": "compress-and-resize-images",
+      "type": "skill-md",
+      "description": "Reduce image file size and change pixel dimensions without visible quality loss. Use when an upload limit rejects a photo, or a page loads slowly because of large images.",
+      "url": "/.well-known/agent-skills/compress-and-resize-images/SKILL.md",
+      "digest": "sha256:ce3a63d2f4b326138a99dfc8f223a94f55d7fc31bd545b6a0b89b32825fdfdb4"
+    },
+    {
+      "name": "strip-image-metadata",
+      "type": "skill-md",
+      "description": "Remove EXIF metadata including GPS coordinates, camera serial numbers and timestamps from photos before sharing them publicly. Use for privacy review of images.",
+      "url": "/.well-known/agent-skills/strip-image-metadata/SKILL.md",
+      "digest": "sha256:5fcdb287076d43e008bc20427a79dc1902675b49299a55e4d5175219f3acc488"
+    },
+    {
+      "name": "work-with-pdf-files",
+      "type": "skill-md",
+      "description": "Merge, split, compress, rotate, crop and watermark PDF files, and extract specific pages. Use for any task that reorganises or reduces the size of a PDF.",
+      "url": "/.well-known/agent-skills/work-with-pdf-files/SKILL.md",
+      "digest": "sha256:e97b5fb156b077d59d133b16fa499e9021f5264b80fee3ddf46f7a2435eae578"
+    },
+    {
+      "name": "convert-audio-and-video",
+      "type": "skill-md",
+      "description": "Convert between MP4, MOV, WEBM, MP3, WAV and other audio/video formats, trim clips, extract audio from video, and make GIFs. Use for media format and size problems.",
+      "url": "/.well-known/agent-skills/convert-audio-and-video/SKILL.md",
+      "digest": "sha256:0ba97caa25d1d90d4032784d4755bf4999d282d88ca10c6fd33159a0e2ae2865"
+    },
+    {
+      "name": "convert-structured-data",
+      "type": "skill-md",
+      "description": "Convert and reformat JSON, CSV, XML, YAML and Markdown tables, and validate or prettify them. Use for data interchange and config file format tasks.",
+      "url": "/.well-known/agent-skills/convert-structured-data/SKILL.md",
+      "digest": "sha256:b55efb093f72d3acca1facc1a7496bf889801b60c559f2d81d63ed56a4077bdc"
+    }
+  ]
+}

@@ -1,0 +1,211 @@
+# robots.txt for https://nexvert.online
+#
+# Cloudflare's "Managed robots.txt" / AI Crawl Control block has been turned OFF, so this file
+# is now served verbatim and is the single source of truth. If AI crawlers ever start getting
+# HTTP 403 again, or a block re-appears above this line, re-check that setting first.
+# Verify with:  curl https://nexvert.online/robots.txt
+#
+# ---------------------------------------------------------------------------
+# CONTENT SIGNALS  (https://contentsignals.org/)
+#
+# As a condition of accessing this website, you agree to abide by the following content signals:
+#
+# (a) If a content-signal = yes, you may collect content for the corresponding use.
+# (b) If a content-signal = no, you may not collect content for the corresponding use.
+# (c) If the website operator does not include a content signal for a corresponding use, the
+#     website operator neither grants nor restricts permission via content signal with respect
+#     to the corresponding use.
+#
+# The content signals and their meanings are:
+#
+# search:   building a search index and providing search results (e.g., returning hyperlinks and
+#           short excerpts from your website's contents). Search does not include providing
+#           AI-generated search summaries.
+# ai-input: inputting content into one or more AI models (e.g., retrieval augmented generation,
+#           grounding, or other real-time taking of content for generative AI search answers).
+# ai-train: training or fine-tuning AI models.
+#
+# Nexvert's policy is permissive on all three, deliberately: the product is the in-browser tool,
+# not the prose, so being indexed, quoted in AI answers and present in model knowledge is the
+# goal rather than something to defend against.
+#
+#   ai-input=yes is the one that matters for being cited by ChatGPT, Perplexity, Gemini and
+#   Claude. Setting it to "no" would ask those engines NOT to use this site in their answers.
+#
+# To reserve training rights while keeping full search + AI-answer visibility, change every
+# "ai-train=yes" below to "ai-train=no" AND switch the training crawlers near the bottom of this
+# file (GPTBot, ClaudeBot, CCBot, cohere-ai, Amazonbot, Bytespider, meta-externalagent) from
+# "Allow: /" to "Disallow: /", so the two mechanisms do not contradict each other.
+#
+# Note: a robots.txt expresses preferences. It does not technically prevent a crawler from
+# taking content, and not all operators honour it.
+#
+# Signals are repeated per group on purpose: under RFC 9309 a crawler obeys only the single most
+# specific group matching its name, so an agent with its own group below would never read a
+# signal that appeared only under "User-agent: *".
+# ---------------------------------------------------------------------------
+
+User-agent: *
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Allow: /
+
+# ---------------------------------------------------------------------------
+# Classic search engines
+# ---------------------------------------------------------------------------
+User-agent: Googlebot
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Allow: /
+
+User-agent: Googlebot-Image
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Allow: /
+
+User-agent: Bingbot
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Allow: /
+
+User-agent: Slurp
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Allow: /
+
+User-agent: DuckDuckBot
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Allow: /
+
+User-agent: Applebot
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Allow: /
+
+User-agent: YandexBot
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Allow: /
+
+User-agent: Seznam
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Allow: /
+
+# ---------------------------------------------------------------------------
+# Answer-engine INDEXERS — these build the index an AI assistant searches.
+# ---------------------------------------------------------------------------
+User-agent: OAI-SearchBot
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Allow: /
+
+# No-op today — Nexvert does not run ChatGPT ads. OAI-AdsBot only visits a page OpenAI was told
+# is an ad landing page, to check it complies with their ad policies, so this has no effect
+# unless/until an ad pointing here is ever submitted. Listed now so the policy is already
+# correct if that changes, rather than something to remember later.
+User-agent: OAI-AdsBot
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Allow: /
+
+User-agent: PerplexityBot
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Allow: /
+
+# Anthropic's in-product search index — the Claude equivalent of OAI-SearchBot. Per Anthropic's
+# crawler documentation, blocking it "prevents our system from indexing your content for search
+# optimization", i.e. it is what decides whether Nexvert can be cited in Claude's web search.
+User-agent: Claude-SearchBot
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Allow: /
+
+User-agent: Applebot-Extended
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Allow: /
+
+User-agent: Google-Extended
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Allow: /
+
+User-agent: DuckAssistBot
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Allow: /
+
+User-agent: Bravebot
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Allow: /
+
+# ---------------------------------------------------------------------------
+# Answer-engine LIVE FETCHERS — these fetch a page at the moment a user asks a
+# question. Allowing them is what makes the site citable in real time.
+# ---------------------------------------------------------------------------
+User-agent: ChatGPT-User
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Allow: /
+
+User-agent: Perplexity-User
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Allow: /
+
+User-agent: Claude-User
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Allow: /
+
+User-agent: Google-NotebookLM
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Allow: /
+
+User-agent: Google-GeminiNotebook
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Allow: /
+
+User-agent: MistralAI-User
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Allow: /
+
+User-agent: meta-externalfetcher
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Allow: /
+
+User-agent: Amzn-User
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Allow: /
+
+# ---------------------------------------------------------------------------
+# Model-training crawlers. Allowed so Nexvert becomes part of what assistants
+# know about file conversion. See the header note before changing these.
+# ---------------------------------------------------------------------------
+User-agent: GPTBot
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Allow: /
+
+User-agent: ClaudeBot
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Allow: /
+
+# anthropic-ai and Claude-Web are both DEPRECATED — Anthropic retired them in favour of
+# ClaudeBot / Claude-User / Claude-SearchBot above. Kept only as a compatibility layer in case
+# anything still identifies under the old strings; harmless to leave, pointless to add elsewhere.
+User-agent: anthropic-ai
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Allow: /
+
+User-agent: Claude-Web
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Allow: /
+
+User-agent: CCBot
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Allow: /
+
+User-agent: cohere-ai
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Allow: /
+
+User-agent: meta-externalagent
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Allow: /
+
+User-agent: Amazonbot
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Allow: /
+
+User-agent: Bytespider
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Allow: /
+
+# ---------------------------------------------------------------------------
+# Machine-readable site summary for LLMs: /llms.txt and /llms-full.txt
+# ---------------------------------------------------------------------------
+Sitemap: https://nexvert.online/sitemap.xml

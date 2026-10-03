@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nexvert: Free Online File Converter for PDF, Images, Video &amp; Audio</title>
+    <meta name="description" content="Convert PDF, JPG, PNG, HEIC, WEBP, MP4, MP3 and 50+ formats for free. 190+ online tools that run in your browser — no uploads, no sign-up, no watermarks." />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href="https://nexvert.online/" />
+
+    <script>
+      try {
+        if (localStorage.getItem("ic_dark_mode") === "true") document.documentElement.classList.add("dark");
+      } catch (_) {}
+    </script>
+
+    <!-- Google tag (gtag.js). GA4 enhanced measurement tracks SPA route changes automatically. -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HSVMB6M4DY"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', {
+        ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied', analytics_storage: 'denied',
+        region: ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+        wait_for_update: 500
+      });
+      gtag('consent', 'default', { ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied', analytics_storage: 'granted' });
+      try {
+        var c = localStorage.getItem('nexvert_consent');
+        if (c === 'granted') gtag('consent', 'update', { analytics_storage: 'granted' });
+        if (c === 'denied') gtag('consent', 'update', { analytics_storage: 'denied' });
+      } catch (_) {}
+      gtag('js', new Date());
+      gtag('config', 'G-HSVMB6M4DY');
+    </script>
+
+
+    <!-- Icons: all generated from brand/logo-master.png (scripts/generate-favicons.cjs).
+         No SVG icon is listed on purpose: browsers prefer an SVG over PNG/ICO, and a vector
+         re-drawing would not match the logo. Sizes are multiples of 48 px for Google Search. -->
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#dc2626" />
+    <meta name="application-name" content="Nexvert" />
+    <meta name="apple-mobile-web-app-title" content="Nexvert" />
+
+    <!-- Open Graph / Twitter -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Nexvert" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:title" content="Nexvert: Free Online File Converter for PDF, Images, Video &amp; Audio" />
+    <meta property="og:description" content="Convert PDF, JPG, PNG, HEIC, WEBP, MP4, MP3 and 50+ formats for free. 190+ online tools that run in your browser — no uploads, no sign-up, no watermarks." />
+    <meta property="og:url" content="https://nexvert.online/" />
+    <meta property="og:image" content="https://nexvert.online/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Nexvert — free online file converter" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Nexvert: Free Online File Converter for PDF, Images, Video &amp; Audio" />
+    <meta name="twitter:description" content="Convert PDF, JPG, PNG, HEIC, WEBP, MP4, MP3 and 50+ formats for free. 190+ online tools that run in your browser — no uploads, no sign-up, no watermarks." />
+    <meta name="twitter:image" content="https://nexvert.online/og-image.png" />
+
+    <link rel="alternate" type="text/plain" title="LLM summary" href="/llms.txt" />
+    <link rel="alternate" type="text/plain" title="LLM full content" href="/llms-full.txt" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

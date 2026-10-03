@@ -1,0 +1,18 @@
+node_modules/
+build/
+dist/
+dist-server/
+coverage/
+.DS_Store
+*.log
+.env*
+!.env.example
+
+# Packaged site archives. The old zip-handoff workflow is retired; the repo is the source of truth.
+*.zip
+
+# Generated at the start of every build by scripts/copy-runtime-assets.cjs, which copies them from
+# node_modules (~55 MB of WebAssembly). Vercel regenerates them on each deploy, so committing
+# them would only bloat git history permanently. Remove these two lines to track them instead.
+public/ffmpeg/
+public/tesseract/

@@ -1,0 +1,232 @@
+# Nexvert
+
+> Nexvert (https://nexvert.online) is a free online file converter with 185+ browser-based tools for PDF, images, audio, video, archives and developer data. Files are processed on the user's own device with browser APIs and WebAssembly (ffmpeg.wasm, Tesseract OCR, pdf-lib, pdf.js) instead of being uploaded to a server. No account, no watermark, no installation.
+
+## Key facts
+- Price: free, no sign-up, no watermarks.
+- Privacy: conversions run locally in the browser; file contents are not uploaded. Anonymous page-view analytics (Google Analytics) is used on the website itself.
+- Platforms: any modern browser on Windows, macOS, Linux, Android and iOS.
+- Limits: per-tool file size limits (typically up to 100 MB for images and PDFs, 200 MB for audio, 500 MB–1 GB for video) set by device memory, not by a paid plan.
+- Formats: 50+ including PDF, DOCX, EPUB, Markdown, HTML, CSV, JSON, XML, YAML, JPG, PNG, WEBP, HEIC, GIF, BMP, SVG, MP3, WAV, OGG, M4A, MP4, WEBM, MOV, ZIP, TAR.
+
+## Main sections
+- Homepage: https://nexvert.online/
+- All tools: https://nexvert.online/tools/
+- PDF tools: https://nexvert.online/pdf-tools/
+- Image tools: https://nexvert.online/image-tools/
+- Audio tools: https://nexvert.online/audio-tools/
+- Video tools: https://nexvert.online/video-tools/
+- Archive tools: https://nexvert.online/archive-tools/
+- Compression tools: https://nexvert.online/compression-tools/
+- Developer tools: https://nexvert.online/developer-tools/
+- Utilities: https://nexvert.online/utilities/
+- Guides: https://nexvert.online/guides/
+- Supported formats: https://nexvert.online/supported-formats/
+- How files are handled: https://nexvert.online/file-security/
+
+## PDF & document tools
+- [Convert DOCX to PDF (Basic Formatting)](https://nexvert.online/docx-to-pdf/): Convert Microsoft Word (.docx) files into clean PDF documents in your browser. Basic text, headings, and formatting only; without complex Word layout preservation.
+- [Convert DOCX to HTML](https://nexvert.online/docx-to-html/): Convert Microsoft Word (.docx) documents to clean, semantic HTML with preserved headings, lists, bold, italics, and tables.
+- [Convert DOCX to Markdown](https://nexvert.online/docx-to-markdown/): Convert Microsoft Word (.docx) documents into clean GitHub-flavored Markdown (.md) syntax directly in your browser.
+- [Convert DOCX to Plain Text](https://nexvert.online/docx-to-text/): Extract raw text from Microsoft Word (.docx) documents without XML markup or formatting bloat.
+- [Convert Markdown to HTML](https://nexvert.online/markdown-to-html/): Compile Markdown (.md) documents into clean, semantic HTML elements with instant live preview and syntax styling.
+- [Convert HTML to Markdown](https://nexvert.online/html-to-markdown/): Convert HTML web pages and markup snippets into clean Markdown format with customizable heading and bullet styles.
+- [Convert Markdown to PDF](https://nexvert.online/markdown-to-pdf/): Render Markdown notes directly into clean, vector-rendered PDF documents with pagination, custom margins, and headers.
+- [Convert CSV to Markdown Table](https://nexvert.online/csv-to-markdown/): Transform CSV spreadsheets and TSV tables into clean, formatted Markdown pipe tables with column alignment.
+- [Convert HTML to Plain Text](https://nexvert.online/html-to-text/): Strip HTML tags, scripts, and CSS styling to extract clean, readable plain text from web pages and emails.
+- [Convert EPUB to Plain Text](https://nexvert.online/epub-to-text/): Extract the chapter text of DRM-free EPUB ebooks into a single readable plain-text document.
+- [Convert EPUB to HTML](https://nexvert.online/epub-to-html/): Extract and assemble EPUB ebook chapters into a single readable, formatted HTML web document.
+- [Convert JPG to PDF](https://nexvert.online/jpg-to-pdf/): Convert JPG photos and graphics into clean PDF document pages.
+- [PDF Merger](https://nexvert.online/pdf-merge/): Merge multiple PDF files into one single organized PDF document.
+- [PDF Splitter](https://nexvert.online/pdf-split/): Split PDF files into individual pages or custom page ranges.
+- [Flatten PDF Tool](https://nexvert.online/flatten-pdf/): Flatten fillable PDF forms into permanent static read-only pages.
+- [PDF Page Resizer](https://nexvert.online/resize-pdf/): Resize PDF page dimensions to standard A4, Letter, or custom print sizes.
+- [PDF Page Rotator](https://nexvert.online/rotate-pdf/): Rotate individual or all pages inside a PDF document 90° or 180°.
+- [PDF Page Cropper](https://nexvert.online/crop-pdf/): Crop margins and extra white space off PDF document pages.
+- [PDF Page Organizer](https://nexvert.online/organize-pdf/): Reorder, delete, and organize PDF pages visually for free.
+- [Extract PDF Pages](https://nexvert.online/extract-pdf-pages/): Select specific pages or numeric ranges and extract them into a brand new PDF document.
+- [Remove PDF Pages](https://nexvert.online/remove-pdf-pages/): Delete unwanted or blank pages from your PDF document with live visual preview checkboxes.
+- [Add Page Numbers to PDF](https://nexvert.online/add-page-numbers/): Stamp customized sequential page numbers with flexible positioning, starting offsets, and styles.
+- [Watermark PDF](https://nexvert.online/watermark-pdf/): Stamp custom text watermarks across all pages with opacity, rotation, and color settings.
+- [PDF Metadata Editor](https://nexvert.online/pdf-metadata-editor/): Read and update document Title, Author, Subject, Keywords, Creator, and Producer properties.
+- [Fill PDF Form Fields](https://nexvert.online/fill-pdf-form/): Detect AcroForm inputs, type into text boxes, toggle checkboxes and dropdowns, and download.
+- [PDF OCR Tool (Extract Text from Scanned PDF)](https://nexvert.online/pdf-ocr/): Extract text from scanned PDF documents page by page using local PDF.js and Tesseract WebAssembly without uploading files.
+
+## Image & photo tools
+- [Image Converter](https://nexvert.online/): Convert images between JPG, PNG, WEBP, GIF, BMP, and HEIC instantly in your browser.
+- [Convert PNG to JPG](https://nexvert.online/png-to-jpg/): Convert PNG graphics to compressed JPG photos for free without server uploads.
+- [Convert JPG to PNG](https://nexvert.online/jpg-to-png/): Convert JPG photos to crisp lossless PNG format for free.
+- [Convert PNG to WEBP](https://nexvert.online/png-to-webp/): Convert PNG images to next-gen WEBP format for faster web page load speeds.
+- [Convert WEBP to JPG](https://nexvert.online/webp-to-jpg/): Convert WEBP web images into universally compatible JPG photos instantly.
+- [Convert WEBP to PNG](https://nexvert.online/webp-to-png/): Convert WEBP graphics to lossless PNG format preserving transparency.
+- [Convert JFIF to PNG](https://nexvert.online/jfif-to-png/): Convert JFIF files to standard PNG images instantly in your browser.
+- [SVG Vector Converter](https://nexvert.online/svg-converter/): Convert SVG vector graphics to PNG, JPG, or WEBP high-resolution raster images.
+- [Image Resizer](https://nexvert.online/resize-image/): Resize image dimensions in pixels or percentages for free.
+- [Image Cropper](https://nexvert.online/crop-image/): Crop photo framing and aspect ratios instantly in your browser.
+- [Image Rotator](https://nexvert.online/rotate-image/): Rotate images 90°, 180°, or 270° clockwise or counterclockwise.
+- [Image Flipper](https://nexvert.online/flip-image/): Mirror images horizontally or vertically for free.
+- [Image Enlarger & Upscaler](https://nexvert.online/image-enlarger/): Upscale and enlarge image resolution clean without blur in your browser.
+- [Adjust Image Brightness & Contrast](https://nexvert.online/brightness-contrast/): Adjust photo brightness and contrast with real-time canvas preview and zero quality loss.
+- [Adjust Image Saturation](https://nexvert.online/saturation-adjuster/): Boost or mute photo colors with live interactive saturation adjustment.
+- [Convert Image to Grayscale (Black & White)](https://nexvert.online/grayscale-converter/): Convert color photos into clean black and white grayscale images instantly in your browser.
+- [Invert Image Colors](https://nexvert.online/invert-colors/): Invert image colors into photo negatives with instant client-side canvas processing.
+- [Apply Sepia Tone Filter](https://nexvert.online/sepia-filter/): Add vintage warm sepia photo tones with adjustable intensity in your browser.
+- [Blur Image](https://nexvert.online/blur-image/): Apply adjustable Gaussian blur to photos and screenshots for privacy or artistic focus.
+- [Pixelate Image & Censor](https://nexvert.online/pixelate-image/): Pixelate faces, sensitive credentials, or entire photos with crisp retro mosaic blocks.
+- [Sharpen Image](https://nexvert.online/image-sharpener/): Enhance edge contrast and clarity with raw 3x3 high-pass convolution kernel filtering.
+- [Add Watermark to Image](https://nexvert.online/add-watermark/): Protect your images by stamping custom text or logo watermarks with opacity and angle controls.
+- [Add Border to Image](https://nexvert.online/add-border/): Add custom frames and colored borders with rounded inner margins to your photos.
+- [Round Image Corners](https://nexvert.online/round-corners/): Round the corners of any photo and export as a clean transparent 32-bit PNG file.
+- [Photo Collage Maker](https://nexvert.online/image-collage/): Arrange multiple photos into 2x2, 3x3, or custom collage grids with custom spacing and colors.
+- [Meme Generator](https://nexvert.online/meme-generator/): Create viral memes with authentic Impact font, black stroke outlines, and custom top/bottom text.
+- [Photo to Pencil Sketch Converter](https://nexvert.online/photo-to-sketch/): Transform portraits and landscapes into pencil sketches using color-dodge blend inversion.
+- [Image Color Picker & Loupe Tool](https://nexvert.online/image-color-picker/): Sample pixel colors from any uploaded photo and copy exact HEX, RGB, and HSL codes.
+- [EXIF Image Metadata Viewer](https://nexvert.online/image-metadata-viewer/): Inspect camera model, GPS coordinates, shutter speed, ISO, aperture, and raw EXIF headers.
+- [Remove EXIF Metadata & Geolocation](https://nexvert.online/remove-exif/): Strip GPS locations, device serials, and camera timestamps by re-encoding clean raw pixels.
+- [Convert Video to GIF Animated](https://nexvert.online/video-to-gif/): Convert video clips (MP4, MOV, WEBM) into animated GIF images for free.
+- [Convert MP4 to GIF](https://nexvert.online/mp4-to-gif/): Turn MP4 videos into shareable animated GIFs instantly in your browser.
+- [Convert WEBM to GIF](https://nexvert.online/webm-to-gif/): Convert WEBM screen recordings into animated GIF images for free.
+- [Convert GIF to MP4 Video](https://nexvert.online/gif-to-mp4/): Convert animated GIFs into lightweight MP4 video files saving 80% storage space.
+- [Convert Images to Animated GIF](https://nexvert.online/image-to-gif/): Combine multiple static images into an animated GIF slideshow for free.
+- [Convert MOV to GIF](https://nexvert.online/mov-to-gif/): Convert QuickTime MOV files into animated GIFs for free.
+- [Convert AVI to GIF](https://nexvert.online/avi-to-gif/): Convert AVI video clips into animated GIFs for free.
+- [Animated GIF Maker](https://nexvert.online/gif-maker/): Create custom animated GIFs from images or video clips for free.
+- [Animated GIF Resizer](https://nexvert.online/gif-resizer/): Resize animated GIF dimensions with high-quality resampling and frame delay preservation.
+- [GIF Frame Splitter & Deconstructor](https://nexvert.online/gif-splitter/): Deconstruct animated GIFs into individual PNG frames and export as a ZIP archive.
+- [File Combiner & Merger](https://nexvert.online/merge-files/): Combine and merge multiple images or files into one consolidated file.
+- [QR Code Generator (Custom Colors & Center Logo)](https://nexvert.online/qr-code-generator/): Create customized, high-resolution QR codes for URLs, WiFi, vCards, emails, and text with custom colors and center logo.
+- [QR Code Reader & Scanner](https://nexvert.online/qr-reader/): Decode and extract information from QR codes instantly. Upload an image or scan live with your webcam or mobile camera.
+- [Barcode Generator (CODE128, EAN13, UPC, CODE39)](https://nexvert.online/barcode-generator/): Generate commercial and industrial barcodes with customized dimensions, fonts, and colors. Download as high-res PNG or vector SVG.
+- [Wi-Fi QR Code Generator](https://nexvert.online/wifi-qr-generator/): Generate scannable Wi-Fi QR codes so guests can connect instantly without entering passwords manually.
+- [vCard QR Code & .VCF File Generator](https://nexvert.online/vcard-generator/): Generate virtual business cards (vCard 3.0) with downloadable .vcf contact files and scannable QR codes.
+- [Image to Text OCR (Extract Text from Image)](https://nexvert.online/image-to-text/): Extract text from scanned images, screenshots, and photos locally in your browser with Tesseract WebAssembly.
+
+## Audio tools
+- [Audio Converter](https://nexvert.online/audio-converter/): Convert audio tracks between MP3, WAV, OGG, and WEBM formats with 100% privacy.
+- [Convert WAV to MP3](https://nexvert.online/wav-to-mp3/): Encode uncompressed WAV audio to high quality MP3 format with genuine LAME MP3 encoding.
+- [Convert MP3 to WAV](https://nexvert.online/mp3-to-wav/): Decode MP3 files into standard 16-bit uncompressed PCM WAV audio files instantly.
+- [Audio Trimmer & Cutter](https://nexvert.online/audio-trimmer/): Cut, split, and trim audio tracks with live waveform inspection and export to MP3 or WAV.
+- [Audio Joiner & Track Merger](https://nexvert.online/audio-merger/): Combine and concatenate multiple audio files into a seamless single MP3 or WAV track.
+- [Audio Speed & Tempo Changer](https://nexvert.online/audio-speed-changer/): Speed up or slow down audio songs or podcast clips with pitch preservation or vinyl tape effect.
+- [Audio Volume Booster & Normalizer](https://nexvert.online/audio-volume/): Amplify quiet audio files, boost volume, or normalize peaks to 0 dBFS without distortion.
+- [Audio Reverser & Backmasking Tool](https://nexvert.online/audio-reverser/): Reverse audio files to play backwards with sample-accurate PCM reflection.
+- [Convert Stereo to Mono Audio](https://nexvert.online/audio-to-mono/): Downmix stereo or multi-channel audio tracks into single-channel mono to cut file size.
+- [Audio File Inspector & Metadata Analyzer](https://nexvert.online/audio-info/): Inspect actual PCM properties: sample rate, exact duration, channels, peak dBFS, and RMS loudness.
+- [Voice Recorder & Audio Capture](https://nexvert.online/voice-recorder/): Record voice or audio from microphone with real-time waveform visualizer and genuine MP3 or WAV export.
+- [Audio Silence Remover](https://nexvert.online/silence-remover/): Automatically detect and trim dead air and silent pauses from podcast recordings and speech.
+
+## Video tools
+- [Video Converter](https://nexvert.online/video-converter/): Convert video files between MP4 and WEBM formats with full client-side privacy.
+- [MP4 Video Converter](https://nexvert.online/mp4-converter/): Convert videos to universal MP4 format fast directly in your browser.
+- [Convert MOV to MP4](https://nexvert.online/mov-to-mp4/): Convert QuickTime MOV videos to universal MP4 format with zero uploads.
+- [Convert Video to MP3 Audio](https://nexvert.online/video-to-mp3/): Extract crystal-clear MP3 or WAV audio tracks from videos in your browser.
+- [Convert MP4 to MP3](https://nexvert.online/mp4-to-mp3/): Extract high quality MP3 sound from MP4 video clips in your browser.
+- [Video Cropper Tool](https://nexvert.online/crop-video/): Crop video aspect ratios and borders directly inside your browser.
+- [Video Trimmer & Cutter](https://nexvert.online/video-trimmer/): Cut video clips with precision boundaries and fast stream copy without quality degradation.
+- [Mute Video](https://nexvert.online/mute-video/): Strip audio tracks from MP4, MOV, and WEBM video clips with lossless stream copying.
+- [Video Resolution Resizer](https://nexvert.online/video-resize/): Resize video resolution to 1080p, 720p, 480p, or 360p while preserving aspect ratio.
+- [Extract Video Frames as PNG Images](https://nexvert.online/extract-video-frames/): Extract high-resolution video frames at customizable intervals and export as a ZIP archive.
+- [Video Metadata & Stream Inspector](https://nexvert.online/video-info/): Inspect video codecs, resolution, duration, bitrate, and audio streams with WebAssembly FFprobe.
+
+## Archive & ZIP tools
+- [Extract ZIP & Inspect Files](https://nexvert.online/extract-zip/): Unpack and selectively extract files from ZIP archives with per-file previews and zero server uploads.
+- [ZIP Viewer & Central Directory Inspector](https://nexvert.online/zip-viewer/): Inspect ZIP internal structure, compression ratios, and CRC32 checksums from central directory headers without decompressing files.
+- [Bulk File Zipper](https://nexvert.online/bulk-file-zipper/): Drop multiple files and entire folders to compress them into a single high-efficiency ZIP archive.
+- [Split ZIP Archive into Fixed Parts](https://nexvert.online/split-zip/): Slice large ZIP archives into exact multi-part chunks for email limits and FAT32 drives, and reassemble them client-side.
+- [Convert TAR to ZIP](https://nexvert.online/tar-to-zip/): Re-pack uncompressed Unix TAR tape archives into compressed DEFLATE ZIP packages client-side.
+- [Convert ZIP to TAR](https://nexvert.online/zip-to-tar/): Unpack a ZIP package and bundle into a standard uncompressed POSIX TAR tape archive client-side.
+- [Extract TAR Archive](https://nexvert.online/extract-tar/): Unpack Unix POSIX TAR archives directly in memory with per-file previews and selective extraction.
+- [ZIP Archive Creator](https://nexvert.online/create-archive/): Compress and bundle multiple files into a single ZIP archive in your browser.
+
+## Compression tools
+- [Image Compressor](https://nexvert.online/image-compressor/): Compress PNG, JPG, and WEBP images without losing visual quality.
+- [JPEG & JPG Compressor](https://nexvert.online/jpeg-compressor/): Reduce JPG photo file sizes for faster web uploads and email sharing.
+- [PNG Image Compressor](https://nexvert.online/png-compressor/): Compress PNG files while keeping transparent layers crisp and clean.
+- [Bulk Image Compressor](https://nexvert.online/bulk-image-compressor/): Compress multiple JPG, PNG, and WEBP files simultaneously and download all as a ZIP archive.
+- [Video Compressor](https://nexvert.online/video-compressor/): Compress MP4 and WEBM video files to fit messaging and upload caps.
+- [MP3 Audio Compressor](https://nexvert.online/mp3-compressor/): Compress MP3 bitrates to shrink audio file size without audible distortions.
+
+## Developer tools
+- [JSON Formatter & Tree Viewer](https://nexvert.online/json-formatter/): Prettify and format JSON data with customizable indentation and an interactive collapsible tree viewer.
+- [JSON Validator & Error Finder](https://nexvert.online/json-validator/): Validate JSON syntax and report exact line and column of parsing errors with pointer highlighting.
+- [JSON Minifier & Whitespace Compressor](https://nexvert.online/json-minifier/): Minify JSON payloads by removing excess whitespace with verified before-and-after byte count calculations.
+- [Convert JSON to CSV](https://nexvert.online/json-to-csv/): Convert arrays of JSON objects into tabular CSV format with automatic dot-notation flattening for nested objects.
+- [Convert CSV to JSON](https://nexvert.online/csv-to-json/): Parse CSV files into clean JSON objects with RFC 4180 compliance for quotes and embedded commas.
+- [Convert JSON to XML](https://nexvert.online/json-to-xml/): Transform JSON data structures into well-formed, indented XML markup with customizable root element.
+- [Convert XML to JSON](https://nexvert.online/xml-to-json/): Convert XML documents into structured JSON objects using the native browser DOM parser.
+- [Convert JSON to YAML](https://nexvert.online/json-to-yaml/): Convert structured JSON payloads to clean, human-readable YAML documents with customizable indentation.
+- [Convert YAML to JSON](https://nexvert.online/yaml-to-json/): Parse YAML configurations into formatted JSON with real-time syntax validation and line-number error reporting.
+- [JSON Diff – Compare Two JSON Documents](https://nexvert.online/json-diff/): Compare two JSON objects side by side to highlight additions, removals, and structural value modifications.
+- [Base64 Encoder & Decoder for Text and Files](https://nexvert.online/base64-encode/): Encode text or binary files to Base64 strings and decode Base64 back to original files or UTF-8 text.
+- [Base64 to Image Decoder](https://nexvert.online/base64-to-image/): Decode Base64 and Data URI strings into downloadable PNG, JPG, WEBP, or SVG image files with live preview.
+- [Image to Base64 Data URI Converter](https://nexvert.online/image-to-base64/): Convert image files to Base64 data URIs with copy-to-clipboard for HTML img tags, CSS background URLs, or raw strings.
+- [URL Encoder & Decoder](https://nexvert.online/url-encode/): Encode strings into percent-encoded query components or decode URI parameters with support for RFC 3986.
+- [HTML Entity Encoder & Decoder](https://nexvert.online/html-entity-encode/): Escape special characters into safe HTML entities (&lt;, &gt;, &amp;, &quot;) and unescape HTML-encoded strings.
+- [JWT Decoder (Header & Payload Inspector)](https://nexvert.online/jwt-decoder/): Inspect JSON Web Token headers and payload claims with human-readable expiration dates. Client-side only; does not claim to verify signatures without secret.
+- [SHA-256 Hash Generator for Text and Files](https://nexvert.online/sha256-generator/): Calculate cryptographic SHA-256 digests for strings or dropped files using the native browser Web Crypto API.
+- [SHA-1 Hash Generator for Text and Files](https://nexvert.online/sha1-generator/): Generate 160-bit SHA-1 checksums for strings and binary files directly inside your browser via Web Crypto.
+- [SHA-512 Hash Generator for Text and Files](https://nexvert.online/sha512-generator/): Compute 512-bit secure hash algorithms for verification of text messages or binary files using Web Crypto.
+- [MD5 Hash Generator for Text and Files](https://nexvert.online/md5-generator/): Compute 128-bit MD5 checksums for verifying file integrity or legacy hash comparisons client-side.
+- [File Checksum Verifier & Multi-Hasher](https://nexvert.online/file-checksum/): Drop any file to compute SHA-256, SHA-1, SHA-512, and MD5 hashes simultaneously with expected checksum matching.
+- [HTML Formatter & Beautifier](https://nexvert.online/html-formatter/): Format, indent, and prettify messy HTML markup with configurable indentation rules and tag preservation.
+- [CSS Formatter & Beautifier](https://nexvert.online/css-formatter/): Beautify and indent CSS stylesheets for clean readability with consistent selector and declaration spacing.
+- [CSS Minifier & Stylesheet Compressor](https://nexvert.online/css-minifier/): Minify CSS files by stripping comments, whitespace, and redundant characters with verified byte-reduction metrics.
+- [JavaScript Formatter & Beautifier](https://nexvert.online/js-formatter/): Format and indent JavaScript and TypeScript source code cleanly with customizable brace and quote preferences.
+- [SQL Formatter & Query Beautifier](https://nexvert.online/sql-formatter/): Format complex SQL queries with keyword uppercasing and dialect support for PostgreSQL, MySQL, SQLite, and Transact-SQL.
+- [XML Formatter & Indenter](https://nexvert.online/xml-formatter/): Prettify and indent XML documents with syntax validation and customizable tag spacing.
+- [UUID Generator v4 (Bulk & Secure)](https://nexvert.online/uuid-generator/): Generate cryptographically random UUID v4 identifiers one by one or in bulk batches up to 1,000 using Web Crypto.
+- [Cryptographic Password Generator & Entropy Calculator](https://nexvert.online/password-generator/): Generate high-entropy random passwords using crypto.getRandomValues with character pool toggles and Shannon entropy calculations.
+- [Random String Generator (Cryptographically Secure)](https://nexvert.online/random-string/): Generate secure random alphanumeric, hexadecimal, or custom character strings powered by Web Crypto.
+- [Lorem Ipsum Placeholder Text Generator](https://nexvert.online/lorem-ipsum/): Generate classical Latin Lorem Ipsum placeholder paragraphs, sentences, or word counts for design and typography mockups.
+- [Regular Expression Tester & Debugger](https://nexvert.online/regex-tester/): Test and debug JavaScript regular expressions with real-time match highlighting, flag toggles, and capture group inspection.
+- [Text Diff Checker (Line & Word Comparison)](https://nexvert.online/text-diff/): Find differences between two text documents side-by-side or inline with granular word-level and line-level diff highlighting.
+- [Unix Epoch Timestamp Converter & Formatter](https://nexvert.online/timestamp-converter/): Convert Unix epoch timestamps in seconds or milliseconds to human-readable dates across multiple timezones and vice versa.
+- [Cron Expression Parser & Human Explainer](https://nexvert.online/cron-parser/): Translate crontab schedule expressions into clear English descriptions and preview upcoming scheduled execution dates.
+- [Number Base Converter (Binary, Hex, Decimal, Octal)](https://nexvert.online/number-base-converter/): Convert numbers seamlessly between Binary, Octal, Decimal, and Hexadecimal representations with BigInt arbitrary precision.
+- [URL Slug Generator (Clean & SEO-Friendly)](https://nexvert.online/slugify/): Transform article titles and strings into clean, URL-safe slugs with customizable delimiters and accent normalization.
+- [String Case Converter (camelCase, snake_case, PascalCase)](https://nexvert.online/case-converter/): Convert text instantly across camelCase, snake_case, kebab-case, PascalCase, CONSTANT_CASE, and Title Case.
+- [URL Query String Parser & Builder](https://nexvert.online/query-string-parser/): Parse URL parameters into an editable key-value grid or build encoded query strings with array and JSON exports.
+- [Color Converter (HEX, RGB, HSL, HSV, CMYK)](https://nexvert.online/color-converter/): Convert colors across HEX, RGB, HSL, HSV, and CMYK color spaces with mathematical precision and live swatch preview.
+- [Image Color Palette Extractor (K-Means Clustering)](https://nexvert.online/color-palette-extractor/): Extract dominant color palettes from uploaded images using HTML5 Canvas pixel sampling and K-Means color quantization.
+- [WCAG Color Contrast Checker (AA & AAA Standards)](https://nexvert.online/contrast-checker/): Verify accessibility compliance between foreground text and background colors according to WCAG 2.1 AA and AAA standards.
+- [CSS Gradient Generator & Visual Editor](https://nexvert.online/gradient-generator/): Create linear and radial CSS gradients visually with color stops, angle controls, and one-click CSS code generation.
+
+## Utilities & calculators
+- [Word Counter & Text Statistics](https://nexvert.online/word-counter/): Accurate real-time word, character, sentence, paragraph, and reading time counter.
+- [Remove Duplicate Lines from Text](https://nexvert.online/remove-duplicate-lines/): Instantly deduplicate text lines with case-sensitivity and trimming options.
+- [Sort Lines Alphabetically or Numerically](https://nexvert.online/sort-lines/): Sort lists of lines ascending (A-Z), descending (Z-A), by length, or randomly.
+- [Find and Replace Text](https://nexvert.online/find-and-replace/): Find and replace words or patterns in text with case-matching and regular expressions.
+- [Text Repeater (Repeat Strings N Times)](https://nexvert.online/text-repeater/): Repeat words, phrases, or symbols multiple times with custom separators.
+- [Reverse Text (Characters, Words & Lines)](https://nexvert.online/reverse-text/): Flip text backwards character-by-character, word-by-word, or reverse line order.
+- [Remove Line Breaks & Returns](https://nexvert.online/remove-line-breaks/): Strip newline characters and combine broken paragraphs into clean continuous text.
+- [Whitespace Remover (Strip Extra Spaces)](https://nexvert.online/whitespace-remover/): Remove leading, trailing, and duplicate spaces or tabs from text cleanly.
+- [In-Browser Text to Speech (TTS)](https://nexvert.online/text-to-speech/): Listen to any text spoken aloud using your device’s native speech synthesis engine.
+- [Unicode Character Map & Symbol Picker](https://nexvert.online/character-map/): Browse, search, and copy Unicode symbols, arrows, currency signs, and special characters.
+- [Universal Unit Converter](https://nexvert.online/unit-converter/): Convert between metric and imperial units for length, weight, temperature, speed, area, and digital data.
+- [Timezone Converter & World Clock](https://nexvert.online/timezone-converter/): Compare local times across major world timezones and schedule international meetings.
+- [Roman Numeral Converter](https://nexvert.online/roman-numeral-converter/): Convert Arabic numbers to Roman numerals and parse Roman numerals back to numbers.
+- [Number to Words Converter](https://nexvert.online/number-to-words/): Spell out numeric amounts into formal English words and currency format for checks and invoices.
+- [Percentage Calculator](https://nexvert.online/percentage-calculator/): Calculate percentage values, percentage increases/decreases, and fractional proportions.
+- [Chronological Age Calculator](https://nexvert.online/age-calculator/): Calculate exact chronological age in years, months, days, hours, and minutes from birth date.
+- [Date Calculator & Day Duration](https://nexvert.online/date-calculator/): Calculate days between two dates or add/subtract business days, weeks, and months.
+- [Body Mass Index (BMI) Calculator](https://nexvert.online/bmi-calculator/): Calculate Body Mass Index (BMI) with metric and imperial units and healthy weight category ranges.
+- [Loan EMI & Amortization Calculator](https://nexvert.online/loan-calculator/): Calculate monthly loan EMI payments, total interest payable, and payoff breakdown.
+- [Tip Calculator & Bill Splitter](https://nexvert.online/tip-calculator/): Calculate exact gratuity tips and split restaurant checks evenly per person.
+- [Discount & Sale Price Calculator](https://nexvert.online/discount-calculator/): Calculate final sale prices, money saved, and stacked coupon discounts.
+- [Aspect Ratio Calculator (16:9, 4:3, 1:1, 21:9)](https://nexvert.online/aspect-ratio-calculator/): Calculate proportional screen and image dimensions for video, displays, and photos.
+- [GST / VAT Tax Calculator](https://nexvert.online/gst-calculator/): Calculate GST inclusive and exclusive pricing, net amounts, and tax portions.
+- [Digital Signature Pad & PNG Drawer](https://nexvert.online/signature-pad/): Draw smooth digital electronic signatures and download transparent PNGs for signing documents.
+- [Invoice Generator (Download PDF)](https://nexvert.online/invoice-generator/): Create professional invoices with custom line items, tax, and company branding, and export real PDFs.
+- [Favicon Generator & Icon Pack Creator](https://nexvert.online/favicon-generator/): Generate multi-resolution website favicons, apple-touch-icons, and manifest files in a downloadable ZIP.
+- [Open Graph (OG) Image Generator 1200x630](https://nexvert.online/og-image-generator/): Design professional social preview cards for Twitter, Facebook, and LinkedIn with high-resolution export.
+- [Placeholder Image Generator](https://nexvert.online/placeholder-image/): Generate custom dimension placeholder mock images with custom backgrounds, text, and format options.
+- [Random Choice Picker & Decision Maker](https://nexvert.online/random-picker/): Pick random items, names, or winners from custom lists with animated selection and history.
+- [Virtual Dice Roller (d4, d6, d8, d20, d100)](https://nexvert.online/dice-roller/): Roll tabletop RPG dice with quantities, modifiers, rolling animations, and cryptographically secure RNG.
+- [Coin Flip (Heads or Tails Toss)](https://nexvert.online/coin-flip/): Flip a virtual coin with 3D animation, coin toss statistics, and fair cryptographic 50/50 probability.
+- [Cryptographic Random Number Generator](https://nexvert.online/random-number/): Generate truly random numbers within custom ranges with sorting and unique options using Web Crypto.
+
+## Discovery
+- Sitemap: https://nexvert.online/sitemap.xml
+- Full content export: https://nexvert.online/llms-full.txt
+- Markdown: every page also exists as plain Markdown at its URL + "index.md" (for example https://nexvert.online/pdf-merge/index.md). Each HTML page announces it with <link rel="alternate" type="text/markdown">.
+- Contact: support@nexvert.online

@@ -1,0 +1,6 @@
+{
+  "name": "nexvert-indexnow",
+  "private": true,
+  "type": "commonjs",
+  "main": "index.js"
+}
