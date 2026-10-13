@@ -6,7 +6,7 @@ import { CONVERSION_PAGES } from '../src/config/conversions.config.ts';
 import { GUIDES_DATA } from '../src/config/guides.config.ts';
 import { CONVERTER_TOOLS } from '../src/config/converters.config.ts';
 import { MASTER_UNIQUE_CONTENT, getUniqueToolContent } from '../src/config/unique-tool-content.ts';
-import { PRIMARY_NAV_CATEGORIES, FOOTER_LINKS } from '../src/config/navigation.config.ts';
+import { PRIMARY_NAV_CATEGORIES, FOOTER_LINKS, ALIAS_TOOL_IDS } from '../src/config/navigation.config.ts';
 import { isImageLandingPage } from '../src/config/conversions.config.ts';
 import { getPageContent, toolNameFromTitle, cleanSlug, NO_TOOL_CONTENT } from '../src/config/page-content.ts';
 import { buildPageSchemas, canonicalUrl } from '../src/config/structured-data.ts';
@@ -63,6 +63,14 @@ function validateNavigationLinks() {
   for (const link of FOOTER_LINKS) {
     if (!publicPathSet.has(normalizeRouteKey(link.route))) {
       issues.push(`Footer link "${link.label}" route "${link.route}" is missing from PUBLIC_ROUTES.`);
+    }
+  }
+
+  // ALIAS_TOOL_IDS (excluded from the advertised tool count) must match the routes registry.
+  const aliasPaths = new Set(PUBLIC_ROUTES.filter((r) => r.canonicalPath).map((r) => normalizeRouteKey(r.path)));
+  for (const tool of Object.values(CONVERTER_TOOLS)) {
+    if (aliasPaths.has(normalizeRouteKey(tool.route)) !== ALIAS_TOOL_IDS.has(tool.id)) {
+      issues.push(`Converter "${tool.id}" alias status disagrees between routes.config canonicalPath and ALIAS_TOOL_IDS.`);
     }
   }
 
@@ -233,10 +241,10 @@ const HUB_FILTERS = {
 const HUB_IDS = new Set(['pdf-tools', 'developer-tools']); // hubs that are also registered as "tools"
 
 const shortTitle = (title) => String(title).split(/\s[—–|]\s/)[0].trim();
-const publicTools = () => Object.values(CONVERTER_TOOLS).filter((t) => t.route !== '/' && !HUB_IDS.has(t.id));
+const publicTools = () => Object.values(CONVERTER_TOOLS).filter((t) => t.route !== '/' && !HUB_IDS.has(t.id) && !ALIAS_TOOL_IDS.has(t.id));
 
 function toolCard(tool) {
-  return `<a href="${tool.route}" class="p-4 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 hover:border-red-500 transition-colors block space-y-1.5 group">
+  return `<a href="${normalizeRouteKey(tool.route)}" class="p-4 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 hover:border-red-500 transition-colors block space-y-1.5 group">
               <h3 class="text-sm font-bold text-slate-900 dark:text-white group-hover:text-red-600">${escapeHtml(shortTitle(tool.title))}</h3>
               <p class="text-xs text-slate-600 dark:text-zinc-400 leading-relaxed">${escapeHtml(tool.description)}</p>
             </a>`;
@@ -432,7 +440,12 @@ function bodyFor(route, info) {
         ${contentSections(info.content, info.toolName)}`;
     const tool = info.tool;
     if (tool) {
-      let related = (tool.relatedToolIds || []).map((id) => CONVERTER_TOOLS[id]).filter((t) => t && t.route !== tool.route);
+      // Same rules as src/config/tool-links.ts: aliases resolve to their canonical tool, deduped.
+      const canonicalByPath = new Map(PUBLIC_ROUTES.filter((r) => r.canonicalPath).map((r) => [normalizeRouteKey(r.path), normalizeRouteKey(r.canonicalPath)]));
+      const toolByPath = new Map(Object.values(CONVERTER_TOOLS).map((t) => [normalizeRouteKey(t.route), t]));
+      const canon = (t) => toolByPath.get(canonicalByPath.get(normalizeRouteKey(t.route))) || t;
+      let related = [...new Set((tool.relatedToolIds || []).map((id) => CONVERTER_TOOLS[id]).filter(Boolean).map(canon))]
+        .filter((t) => normalizeRouteKey(t.route) !== normalizeRouteKey(canon(tool).route));
       if (related.length < 4) {
         related = [...related, ...publicTools().filter((t) => t.category === tool.category && t.id !== tool.id && !related.includes(t))].slice(0, 6);
       }

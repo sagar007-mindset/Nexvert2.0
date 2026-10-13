@@ -17,9 +17,8 @@ export default function SupportedFormatsPage({ onNavigate }: SupportedFormatsPag
       formats: [
         { ext: 'PDF', name: 'Portable Document Format', mime: 'application/pdf', converterRoute: '/pdf-merge' },
         { ext: 'DOCX', name: 'Microsoft Word Document', mime: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', converterRoute: '/docx-to-pdf' },
-        { ext: 'TXT', name: 'Plain Text File', mime: 'text/plain', converterRoute: '/document-converter' },
-        { ext: 'EPUB', name: 'Electronic Publication', mime: 'application/epub+zip', converterRoute: '/epub-to-pdf' },
-        { ext: 'MOBI', name: 'Mobipocket eBook', mime: 'application/x-mobipocket-ebook', converterRoute: '/ebook-converter' }
+        { ext: 'TXT', name: 'Plain Text File', mime: 'text/plain', converterRoute: '/markdown-to-pdf/' },
+        { ext: 'EPUB', name: 'Electronic Publication', mime: 'application/epub+zip', converterRoute: '/epub-to-text/' }
       ]
     },
     {
@@ -31,11 +30,11 @@ export default function SupportedFormatsPage({ onNavigate }: SupportedFormatsPag
         { ext: 'JPG / JPEG', name: 'Joint Photographic Experts Group', mime: 'image/jpeg', converterRoute: '/jpg-to-png' },
         { ext: 'PNG', name: 'Portable Network Graphics', mime: 'image/png', converterRoute: '/png-to-jpg' },
         { ext: 'WEBP', name: 'Google Web Picture Format', mime: 'image/webp', converterRoute: '/webp-to-jpg' },
-        { ext: 'HEIC / HEIF', name: 'Apple High Efficiency Image', mime: 'image/heic', converterRoute: '/jpg-to-png' },
+        { ext: 'HEIC / HEIF', name: 'Apple High Efficiency Image', mime: 'image/heic', converterRoute: '/' },
         { ext: 'GIF', name: 'Graphics Interchange Format', mime: 'image/gif', converterRoute: '/gif-to-mp4' },
         { ext: 'JFIF', name: 'JPEG File Interchange Format', mime: 'image/jfif', converterRoute: '/jfif-to-png' },
         { ext: 'BMP', name: 'Bitmap Image File', mime: 'image/bmp', converterRoute: '/' },
-        { ext: 'TIFF', name: 'Tagged Image File Format', mime: 'image/tiff', converterRoute: '/' }
+        { ext: 'TIFF', name: 'Tagged Image File Format', mime: 'image/tiff', converterRoute: '/image-to-text/' }
       ]
     },
     {
@@ -44,8 +43,7 @@ export default function SupportedFormatsPage({ onNavigate }: SupportedFormatsPag
       icon: <Layers className="w-5 h-5 text-purple-500" />,
       description: 'Scalable vector paths converted to raster bitmaps or scalable vector definitions without pixel loss.',
       formats: [
-        { ext: 'SVG', name: 'Scalable Vector Graphics', mime: 'image/svg+xml', converterRoute: '/svg-converter' },
-        { ext: 'EPS', name: 'Encapsulated PostScript', mime: 'application/postscript', converterRoute: '/svg-converter' }
+        { ext: 'SVG', name: 'Scalable Vector Graphics', mime: 'image/svg+xml', converterRoute: '/svg-converter/' }
       ]
     },
     {
@@ -57,7 +55,7 @@ export default function SupportedFormatsPage({ onNavigate }: SupportedFormatsPag
         { ext: 'MP3', name: 'MPEG Audio Layer III', mime: 'audio/mpeg', converterRoute: '/audio-converter' },
         { ext: 'WAV', name: 'Waveform Audio File Format', mime: 'audio/wav', converterRoute: '/audio-converter' },
         { ext: 'AAC', name: 'Advanced Audio Coding', mime: 'audio/aac', converterRoute: '/audio-converter' },
-        { ext: 'OGG', name: 'Ogg Vorbis Audio', mime: 'audio/ogg', converterRoute: '/mp3-to-ogg' },
+        { ext: 'OGG', name: 'Ogg Vorbis Audio', mime: 'audio/ogg', converterRoute: '/audio-converter/' },
         { ext: 'FLAC', name: 'Free Lossless Audio Codec', mime: 'audio/flac', converterRoute: '/audio-converter' },
         { ext: 'M4A', name: 'MPEG-4 Audio Stream', mime: 'audio/mp4', converterRoute: '/audio-converter' }
       ]
@@ -80,9 +78,9 @@ export default function SupportedFormatsPage({ onNavigate }: SupportedFormatsPag
       icon: <Archive className="w-5 h-5 text-indigo-500" />,
       description: 'Archive unzipping and compression powered by JSZip and in-memory tar-ball streams.',
       formats: [
-        { ext: 'ZIP', name: 'ZIP Compressed Package', mime: 'application/zip', converterRoute: '/extract-archive' },
+        { ext: 'ZIP', name: 'ZIP Compressed Package', mime: 'application/zip', converterRoute: '/extract-zip/' },
         { ext: 'TAR', name: 'Tape Archive Stream', mime: 'application/x-tar', converterRoute: '/tar-to-zip' },
-        { ext: 'GZ', name: 'Gzip Compressed File', mime: 'application/gzip', converterRoute: '/extract-archive' }
+        { ext: 'TAR.GZ / TGZ', name: 'Gzip-Compressed Tar Archive', mime: 'application/gzip', converterRoute: '/tar-to-zip/' }
       ]
     }
   ];

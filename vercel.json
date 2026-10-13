@@ -7,6 +7,42 @@
   "cleanUrls": false,
   "redirects": [
     {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "nexvert.vercel.app"
+        }
+      ],
+      "destination": "https://nexvert.online/$1",
+      "statusCode": 301
+    },
+    {
+      "source": "/color-picker/",
+      "destination": "/image-color-picker/",
+      "statusCode": 301
+    },
+    {
+      "source": "/trim-video/",
+      "destination": "/video-trimmer/",
+      "statusCode": 301
+    },
+    {
+      "source": "/pdf-page-remover/",
+      "destination": "/remove-pdf-pages/",
+      "statusCode": 301
+    },
+    {
+      "source": "/extract-pages-from-pdf/",
+      "destination": "/extract-pdf-pages/",
+      "statusCode": 301
+    },
+    {
+      "source": "/extract-archive/",
+      "destination": "/extract-zip/",
+      "statusCode": 301
+    },
+    {
       "source": "/image-converter/:path*/",
       "destination": "/",
       "statusCode": 301

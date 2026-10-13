@@ -2,7 +2,7 @@
 
 Free online file converter — https://nexvert.online
 
-190+ browser-based tools for PDF, images, audio, video, archives and developer data. All
+180+ browser-based tools for PDF, images, audio, video, archives and developer data. All
 processing runs in the visitor's browser (Canvas, Web Audio, pdf-lib, pdf.js, ffmpeg.wasm,
 Tesseract OCR); files are never uploaded.
 

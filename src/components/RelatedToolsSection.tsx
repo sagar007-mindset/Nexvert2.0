@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowRight, Wrench } from 'lucide-react';
 import { CONVERTER_TOOLS, ConverterToolConfig } from '../config/converters.config';
+import { resolveRelatedTools, isAliasTool, toolHref } from '../config/tool-links';
 
 interface RelatedToolsSectionProps {
   config: ConverterToolConfig;
@@ -15,10 +16,8 @@ export default function RelatedToolsSection({
     return null;
   }
 
-  // 1. Get explicit related tool objects that exist
-  let relatedTools = (config.relatedToolIds || [])
-    .map((id) => CONVERTER_TOOLS[id])
-    .filter((t): t is ConverterToolConfig => !!t && t.id !== config.id);
+  // 1. Explicit related tools, with alias tools resolved to their canonical page and deduplicated
+  let relatedTools = resolveRelatedTools(config.relatedToolIds, config);
 
   // 2. If fewer than 3, draw additional tools from the same category
   if (relatedTools.length < 3) {
@@ -26,7 +25,7 @@ export default function RelatedToolsSection({
     existingIds.add(config.id);
 
     const sameCategoryTools = Object.values(CONVERTER_TOOLS)
-      .filter((t) => t.category === config.category && !existingIds.has(t.id))
+      .filter((t) => t.category === config.category && !existingIds.has(t.id) && !isAliasTool(t) && toolHref(t) !== toolHref(config))
       .slice(0, 4 - relatedTools.length);
 
     relatedTools = [...relatedTools, ...sameCategoryTools];
@@ -38,7 +37,7 @@ export default function RelatedToolsSection({
     existingIds.add(config.id);
 
     const otherTools = Object.values(CONVERTER_TOOLS)
-      .filter((t) => !existingIds.has(t.id))
+      .filter((t) => !existingIds.has(t.id) && !isAliasTool(t) && toolHref(t) !== toolHref(config))
       .slice(0, 4 - relatedTools.length);
 
     relatedTools = [...relatedTools, ...otherTools];
@@ -59,10 +58,10 @@ export default function RelatedToolsSection({
         {relatedTools.map((tool) => (
           <a
             key={tool.id}
-            href={tool.route}
+            href={toolHref(tool)}
             onClick={(e) => {
               e.preventDefault();
-              onNavigate(tool.route);
+              onNavigate(toolHref(tool));
             }}
             className="group cursor-pointer bg-white hover:bg-slate-50 dark:bg-zinc-900 dark:hover:bg-zinc-800 border border-slate-200 hover:border-red-500 dark:border-zinc-800 dark:hover:border-red-900 p-3.5 rounded-2xl flex items-center justify-between transition-all shadow-sm"
           >

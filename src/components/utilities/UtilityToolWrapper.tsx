@@ -6,6 +6,7 @@
 import React from 'react';
 import { ChevronRight, Home, ShieldCheck, ArrowLeft, Wrench } from 'lucide-react';
 import { getConverterConfig } from '../../config/converters.config';
+import { resolveRelatedTools, toolHref } from '../../config/tool-links';
 
 interface UtilityToolWrapperProps {
   toolId: string;
@@ -20,9 +21,9 @@ export default function UtilityToolWrapper({
 }: UtilityToolWrapperProps) {
   const config = getConverterConfig(toolId);
 
-  const relatedTools = (config?.relatedToolIds || [])
-    .map((id) => getConverterConfig(id))
-    .filter(Boolean);
+  // Resolved through tool-links so alias tools point at their canonical page, and rendered as
+  // real <a href> links: buttons and divs with onClick are invisible to search crawlers.
+  const relatedTools = config ? resolveRelatedTools(config.relatedToolIds, config) : [];
 
   return (
     <div className="w-full max-w-5xl mx-auto px-0 sm:px-2 py-2 sm:py-6">
@@ -40,10 +41,14 @@ export default function UtilityToolWrapper({
             {relatedTools.map((rel) => {
               if (!rel) return null;
               return (
-                <button
+                <a
                   key={rel.id}
-                  onClick={() => onNavigate(rel.route)}
-                  className="p-3 text-left rounded-xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 hover:border-amber-400 dark:hover:border-amber-500/50 hover:shadow-xs transition-all cursor-pointer group"
+                  href={toolHref(rel)}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onNavigate(toolHref(rel));
+                  }}
+                  className="block p-3 text-left rounded-xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 hover:border-amber-400 dark:hover:border-amber-500/50 hover:shadow-xs transition-all cursor-pointer group"
                 >
                   <p className="text-xs font-bold text-slate-900 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors line-clamp-1">
                     {rel.title}
@@ -51,7 +56,7 @@ export default function UtilityToolWrapper({
                   <p className="text-[11px] text-slate-500 dark:text-zinc-400 mt-0.5 line-clamp-2 leading-relaxed">
                     {rel.description}
                   </p>
-                </button>
+                </a>
               );
             })}
           </div>

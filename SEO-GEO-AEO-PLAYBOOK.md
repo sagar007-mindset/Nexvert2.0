@@ -192,10 +192,10 @@ citation because answer engines weight editorial mentions, not directory rows.
 `Free file converter that runs entirely in your browser`
 
 **Short (140 chars):**
-`Nexvert converts PDF, image, audio and video files in your browser. 190+ free tools, no upload, no sign-up, no watermark.`
+`Nexvert converts PDF, image, audio and video files in your browser. 180+ free tools, no upload, no sign-up, no watermark.`
 
 **Medium (280 chars):**
-`Nexvert is a free online file converter with 190+ tools for PDF, images, audio, video, archives and developer data. Everything runs locally in your browser using WebAssembly (ffmpeg.wasm, Tesseract, pdf-lib), so your files never leave your device. No account, no watermark, no install.`
+`Nexvert is a free online file converter with 180+ tools for PDF, images, audio, video, archives and developer data. Everything runs locally in your browser using WebAssembly (ffmpeg.wasm, Tesseract, pdf-lib), so your files never leave your device. No account, no watermark, no install.`
 
 **Long (for Product Hunt / AlternativeTo):**
 ```
@@ -207,7 +207,7 @@ and WebAssembly — ffmpeg.wasm for audio and video, pdf-lib and pdf.js for docu
 for OCR, and Canvas for images. Your file stays in your device's memory and is gone when you
 close the tab.
 
-190+ tools covering PDF (merge, split, compress, rotate, watermark, OCR), images (HEIC, WEBP,
+180+ tools covering PDF (merge, split, compress, rotate, watermark, OCR), images (HEIC, WEBP,
 PNG, JPG, resize, compress, EXIF removal), audio (MP3, WAV, trim, merge, normalise), video
 (MP4, MOV, WEBM, GIF, trim, mute), archives, and developer utilities (JSON, CSV, XML, YAML,
 hashing, encoding).
@@ -1223,3 +1223,32 @@ the share image; and the Threads handle `@nexvert.online`.
   `https://nexvert.online/sitemap.xml` after the next deploy.
 - GitHub, X and Threads bio links should point at `https://nexvert.online` (the GitHub repo's
   Website field already does).
+
+## 26. Indexing audit and fixes (2026-10-13)
+
+**Trigger:** `site:nexvert.online` dropped from 46 to 34 results. `site:` counts are rough
+estimates and move around; Search Console's Pages report is the real number (50 indexed,
+166 "Discovered – currently not indexed" on 10/9).
+
+**Fake reviews: none.** No `aggregateRating`, `ratingValue` or review markup exists in the
+source, in any of the 215 live pages, or in the 167 live JS bundles. The old "4.9 (18,420)"
+snippet was Google's cache of a pre-v3 build. Check Search Console → Security & Manual actions
+to confirm there is no manual action.
+
+**Real problems found, and what changed:**
+
+| Problem | Fix |
+|---|---|
+| Guides were ~130 own words + a 353-word shared "Related Reading" block (57–61% near-duplicate) | Related Reading cut to 3 titles, same category first, no excerpts. Max guide overlap now 25%. |
+| `client-side-privacy` was 116 words, 0 FAQs | Rewritten to ~1,000 words with 4 FAQs, honest about Google Analytics and the limits of client-side. |
+| Guides claimed PDF→Word/JPG/EPUB tools that do not exist | Rewritten around the real PDF tools; FAQ says plainly Nexvert does not convert PDF to Word/JPG. |
+| 7 broken internal links (guides, Supported Formats) | Fixed; MOBI and EPS rows removed (no tool supports them). |
+| 5 alias URLs (`/color-picker/`, `/trim-video/`, `/pdf-page-remover/`, `/extract-pages-from-pdf/`, `/extract-archive/`) linked internally | All lists go through `src/config/tool-links.ts`; the aliases 301 to their canonical page in `vercel.json`. |
+| Utility and developer "Related tools" were `<button>`/`<div onClick>` — invisible to crawlers | Now real `<a href>` links. Pages with ≤2 inbound links: 75 → 19. |
+| "190+ tools" counted the 5 aliases and 2 hub pages | `TOTAL_TOOLS_COUNT` excludes `ALIAS_TOOL_IDS`; copy says "180+". Prerender fails the build if `ALIAS_TOOL_IDS` and the routes registry disagree. |
+| `nexvert.vercel.app` served a duplicate site | Host-scoped 301 to `https://nexvert.online/$1` in `vercel.json` (regex source `/(.*)`). |
+
+**Still to do by the site owner:** redirect `www.nexvert.online` → apex in the Vercel dashboard;
+stop "Validate fix" on the redirect / alternate-canonical rows (they are correct behaviour);
+after publishing, resubmit the sitemap. The remaining short guides (~260–300 words) are the
+next content priority.

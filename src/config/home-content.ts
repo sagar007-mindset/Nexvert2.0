@@ -7,12 +7,12 @@
 
 export const HOME_TITLE = 'Nexvert: Free Online File Converter for PDF, Images, Video & Audio';
 export const HOME_DESCRIPTION =
-  'Convert PDF, JPG, PNG, HEIC, WEBP, MP4, MP3 and 50+ formats for free. 190+ online tools that run in your browser — no uploads, no sign-up, no watermarks.';
+  'Convert PDF, JPG, PNG, HEIC, WEBP, MP4, MP3 and 50+ formats for free. 180+ online tools that run in your browser — no uploads, no sign-up, no watermarks.';
 export const HOME_H1 = 'Free Online File Converter & Tools';
 export const HOME_INTRO =
   'Convert PDFs, office documents, photos, vector graphics, audio tracks and videos for free. Nexvert’s tools run inside your browser, so your files are processed on your own device instead of being uploaded to a server.';
 export const HOME_ANSWER =
-  'Nexvert is a free online file converter with more than 190 browser-based tools for documents, images, audio, video, archives and developer data. Files are decoded and re-encoded locally with browser APIs and WebAssembly, so they are not uploaded to a cloud conversion service, and there is no sign-up or watermark.';
+  'Nexvert is a free online file converter with more than 180 browser-based tools for documents, images, audio, video, archives and developer data. Files are decoded and re-encoded locally with browser APIs and WebAssembly, so they are not uploaded to a cloud conversion service, and there is no sign-up or watermark.';
 
 export const HOME_FAQS = [
   {

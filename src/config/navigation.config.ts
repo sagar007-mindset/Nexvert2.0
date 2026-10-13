@@ -30,8 +30,16 @@ export interface FooterLinkItem {
   external?: boolean;
 }
 
+/**
+ * Tools registered under a second, alias route whose page canonicalises to another tool (the
+ * routes registry's `canonicalPath` entries). They are not separate tools, so they are left out
+ * of the advertised total. Kept here rather than derived, because routes.config imports this
+ * file; scripts/prerender.js fails the build if this list and the registry disagree.
+ */
+export const ALIAS_TOOL_IDS = new Set(['color-picker', 'trim-video', 'pdf-page-remover', 'extract-pages-from-pdf', 'extract-archive']);
+
 // Dynamically computed tool counts
-export const TOTAL_TOOLS_COUNT = Object.keys(CONVERTER_TOOLS).length;
+export const TOTAL_TOOLS_COUNT = Object.keys(CONVERTER_TOOLS).filter((id) => !ALIAS_TOOL_IDS.has(id)).length;
 
 const toolsList = Object.values(CONVERTER_TOOLS);
 export const PDF_TOOLS_COUNT = toolsList.filter(t => t.category === 'PDF & Document').length;

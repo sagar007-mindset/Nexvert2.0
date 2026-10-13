@@ -11,7 +11,7 @@ export const UNIQUE_HUBS_CONTENT: Record<string, ToolSEOData> = {
   home: {
     h1: 'Free Online File Converter & Tools',
     description: 'Convert PDF, JPG, PNG, HEIC, WEBP, MP4, MP3 and 50+ formats for free in your browser.',
-    introParagraph: 'Nexvert is a free online file converter with more than 190 browser-based tools for documents, images, audio, video, archives and developer data. Files are processed on your own device with browser APIs and WebAssembly, so they are not uploaded to a server.',
+    introParagraph: 'Nexvert is a free online file converter with more than 180 browser-based tools for documents, images, audio, video, archives and developer data. Files are processed on your own device with browser APIs and WebAssembly, so they are not uploaded to a server.',
     steps: [
       { title: 'Pick a tool', text: 'Choose a converter or browse a category.' },
       { title: 'Add your file', text: 'Select or drag in the file; it stays on your device.' },
@@ -27,14 +27,14 @@ export const UNIQUE_HUBS_CONTENT: Record<string, ToolSEOData> = {
   tools: {
     h1: 'All Tools – Nexvert File Converters & Utilities',
     description: 'Browse and search every Nexvert tool: PDF, image, audio, video, archive, compression, developer and everyday utilities.',
-    introParagraph: 'This directory lists every Nexvert tool in one place — more than 190 converters, editors and utilities grouped into PDF & documents, images, audio, video, archives, compression, developer tools and everyday utilities. Search by tool name, file format or task (for example "merge", "WebP" or "SHA-256") to jump straight to what you need. Every tool runs in your browser: files are processed on your device, there is no sign-up, and results are never watermarked. Tools that use your camera (QR scanning) or microphone (voice recorder) ask for permission first.',
+    introParagraph: 'This directory lists every Nexvert tool in one place — more than 180 converters, editors and utilities grouped into PDF & documents, images, audio, video, archives, compression, developer tools and everyday utilities. Search by tool name, file format or task (for example "merge", "WebP" or "SHA-256") to jump straight to what you need. Every tool runs in your browser: files are processed on your device, there is no sign-up, and results are never watermarked. Tools that use your camera (QR scanning) or microphone (voice recorder) ask for permission first.',
     steps: [
       { title: 'Search or filter', text: 'Type a format, task or tool name, or pick a category.' },
       { title: 'Open the tool', text: 'Click a tool card to open its page.' },
       { title: 'Process your file', text: 'Add your file or input, adjust the options and download the result.' },
     ],
     faqs: [
-      { question: 'How many tools does Nexvert have?', answer: 'More than 190, covering PDF and document conversion, image editing and conversion, audio, video, archives, compression, developer utilities and calculators.' },
+      { question: 'How many tools does Nexvert have?', answer: 'More than 180, covering PDF and document conversion, image editing and conversion, audio, video, archives, compression, developer utilities and calculators.' },
       { question: 'What if the conversion I need is missing?', answer: 'Send a request through the Contact page. Suggestions are used to decide which tools to add next.' },
       { question: 'Can I bookmark a tool?', answer: 'Yes. Every tool has its own URL, such as /pdf-merge/ or /png-to-jpg/, which you can bookmark or share.' },
     ],

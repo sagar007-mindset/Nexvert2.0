@@ -23,7 +23,7 @@ export const BLOG_URL = `${SITE_URL}/guides/`;
  * Date of the last significant content update, used as <lastmod> in sitemap.xml and as
  * dateModified in structured data. Bump it when page content changes meaningfully.
  */
-export const SITE_LAST_UPDATED = '2026-10-01';
+export const SITE_LAST_UPDATED = '2026-10-13';
 
 /** IndexNow key (Bing, Yandex, Seznam…). The key file public/<key>.txt is written at build time. */
 export const INDEXNOW_KEY = '7cab152dd365f43ef1e7a4608cab0eab';

@@ -37,7 +37,14 @@ export default function GuidesSection({ activeGuideSlug, onNavigate }: GuidesSec
   // If we are looking at a specific guide, render the article view
   if (activeGuideSlug && GUIDES_DATA[activeGuideSlug]) {
     const article = GUIDES_DATA[activeGuideSlug];
-    const otherArticles = Object.values(GUIDES_DATA).filter((a) => a.slug !== activeGuideSlug);
+    // Three related guides, same category first. Listing every other guide with its excerpt made
+    // ~70% of each guide page identical to every other guide, so search engines saw them as
+    // near-duplicates. Deterministic (no randomness) so prerendered and hydrated HTML match.
+    const others = Object.values(GUIDES_DATA).filter((a) => a.slug !== activeGuideSlug);
+    const otherArticles = [
+      ...others.filter((a) => a.category === article.category),
+      ...others.filter((a) => a.category !== article.category),
+    ].slice(0, 3);
 
     return (
       <div className="w-full max-w-4xl text-left space-y-6" id="article-view">
@@ -209,9 +216,6 @@ export default function GuidesSection({ activeGuideSlug, onNavigate }: GuidesSec
                     <h4 className="text-xs md:text-sm font-black text-slate-700 dark:text-zinc-200 leading-snug group-hover:text-red-600 transition-colors">
                       {other.h1}
                     </h4>
-                    <p className="text-[11px] text-slate-400 mt-2 line-clamp-2">
-                      {other.excerpt}
-                    </p>
                     <div className="flex items-center justify-between mt-3 text-[10px] font-bold text-slate-400 group-hover:text-red-500 transition-colors">
                       <span>{other.readTime}</span>
                       <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />

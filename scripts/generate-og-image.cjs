@@ -31,7 +31,7 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" v
   <g transform="translate(96 96) scale(0.25)">${logoInner}</g>
   <text x="244" y="170" font-family="Segoe UI, Arial, sans-serif" font-size="64" font-weight="800" fill="#ffffff">Nexvert</text>
   <text x="96" y="300" font-family="Segoe UI, Arial, sans-serif" font-size="68" font-weight="800" fill="#ffffff">Free Online File Converter</text>
-  <text x="96" y="370" font-family="Segoe UI, Arial, sans-serif" font-size="34" fill="#a1a1aa">190+ tools that run privately in your browser — no uploads.</text>
+  <text x="96" y="370" font-family="Segoe UI, Arial, sans-serif" font-size="34" fill="#a1a1aa">180+ tools that run privately in your browser — no uploads.</text>
   ${chipSvg}
   <text x="96" y="566" font-family="Segoe UI, Arial, sans-serif" font-size="26" font-weight="600" fill="#f43f5e">nexvert.online</text>
 </svg>`;

@@ -136,7 +136,7 @@ export const GUIDES_DATA: Record<string, GuideArticle> = {
     readTime: '5 min read',
     category: 'Image Formats',
     excerpt: 'Explore the technical differences between Apple next-generation HEIC file type and the legacy JPEG standard, and discover how to optimize your digital assets.',
-    relatedToolRoute: '/heic-to-jpg',
+    relatedToolRoute: '/',
     sections: [
       {
         heading: 'Understanding the Technical Difference',
@@ -213,26 +213,80 @@ export const GUIDES_DATA: Record<string, GuideArticle> = {
   'client-side-privacy': {
     slug: 'client-side-privacy',
     title: 'Why Client-Side Conversion is Safer than Cloud Tools — Nexvert',
-    metaDescription: 'Learn why cloud-based file converters pose severe security risks and why local in-browser processing is safer.',
-    h1: 'Why Client-Side Image Conversion is Safer than Cloud Tools',
+    metaDescription: 'How upload-based file converters handle your files, what in-browser (client-side) conversion changes, its real limits, and how to check a converter yourself.',
+    h1: 'Why Client-Side File Conversion is Safer than Cloud Tools',
     date: 'July 20, 2026',
     readTime: '6 min read',
     category: 'Privacy & Security',
-    excerpt: 'Stop uploading your private bank statements, family photos, and proprietary documents to unknown remote servers. Discover the local security model.',
-    relatedToolRoute: '/file-security',
+    excerpt: 'What actually happens to a file when an online converter uploads it, what changes when the conversion runs in your browser instead, and how to verify the difference yourself.',
+    relatedToolRoute: '/file-security/',
     sections: [
       {
-        heading: 'The Hidden Risks of File Converters',
+        heading: 'What happens when a converter uploads your file',
         text: [
-          'When you search for "free online file converter," hundreds of tools ask you to upload your files to their remote servers. Once uploaded, you lose all control over where your sensitive financial records, ID photos, or business documents end up.',
-          'Cloud servers can be compromised, logged, or analyzed by third parties without your knowledge or consent.'
+          'Most online converters work the same way: your browser sends the whole file to the service’s server, the server converts it, and you download the result. For that to work, a complete copy of your file has to exist, at least for a while, on a computer you do not control.',
+          'Reputable services delete uploads after a set time and encrypt the connection, and many are run carefully. The point is not that cloud converters are malicious. It is that you are relying on their retention policy, their access controls, their backups and their logging, none of which you can see. For a holiday photo that is usually fine. For a bank statement, a passport scan, a signed contract or an unreleased company document, it is a real risk worth avoiding when you can.'
         ]
       },
       {
-        heading: 'The Client-Side Solution',
+        heading: 'What client-side conversion changes',
         text: [
-          'Nexvert solves this security dilemma by executing 100% of the conversion logic directly inside your web browser using WebAssembly and HTML5 Canvas. No file bytes are ever uploaded to remote servers.'
+          'In a client-side converter the conversion code is downloaded to your browser and runs there. Nexvert uses browser APIs such as Canvas for images, and WebAssembly builds of established libraries (for example ffmpeg.wasm for audio and video, Tesseract for OCR, and pdf-lib for PDF editing) for the heavier work. Your file is read from your disk into the browser tab’s memory, converted there, and the result is handed back to you as a download.',
+          'Nexvert’s conversion tools do not upload the files you select. There is no server-side conversion step and nothing to delete afterwards, because the file contents never leave your device in the first place.'
+        ],
+        bullets: [
+          'No copy of the file on someone else’s server, so no retention period to trust.',
+          'No upload wait: large files start converting immediately instead of waiting on your upload speed.',
+          'Works offline once a tool’s code has loaded, which is also the easiest way to prove nothing is being sent.',
+          'No account needed, because nothing is stored for you on a server.'
         ]
+      },
+      {
+        heading: 'What client-side does not protect against',
+        text: [
+          'Local processing removes the upload, but it is not a magic shield, and it is worth being precise about the limits.'
+        ],
+        bullets: [
+          'The page itself still loads from a server. You are trusting the code that server delivers, just as you trust any website you use.',
+          'Nexvert uses Google Analytics to count page visits. It records which pages are viewed, not the files you open. In the EEA, the UK and Switzerland it stays off until you accept it in the consent banner, and you can decline it anywhere.',
+          'Your own device matters. A compromised computer or a malicious browser extension can read a file whether or not a website uploads it.',
+          'The downloaded result is a normal file on your device, so store and share it with the same care as the original.',
+          'Some heavy jobs are limited by your device’s memory. Very large videos may be slower in a browser than on a dedicated server.'
+        ]
+      },
+      {
+        heading: 'How to check any converter yourself',
+        text: [
+          'You do not have to take a privacy claim on trust. Two simple checks work on any converter, including this one.'
+        ],
+        bullets: [
+          'Open your browser’s developer tools (F12), go to the Network tab, then convert a file. An upload-based tool shows a large request roughly the size of your file. A client-side tool does not.',
+          'Load the tool, switch your device to airplane mode or disconnect from the network, then convert a file. If it still works, the conversion is happening on your device.'
+        ]
+      },
+      {
+        heading: 'When a cloud tool is still the better choice',
+        text: [
+          'Client-side is not always the right answer. Server-side engines are better at some conversions that need large proprietary software, such as rebuilding an editable Word document from a PDF, and they can process very large batches without depending on your hardware. If a file is not sensitive and you need one of those conversions, a reputable cloud service is a reasonable choice. For anything personal or confidential, prefer a tool that converts locally.'
+        ]
+      }
+    ],
+    faqs: [
+      {
+        question: 'Does Nexvert upload my files?',
+        answer: 'No. Nexvert’s conversion tools read the file you select inside your browser and convert it there. The file contents are not sent to Nexvert or to any conversion server.'
+      },
+      {
+        question: 'How can I verify that a converter does not upload my files?',
+        answer: 'Watch the Network tab in your browser’s developer tools while converting, or load the tool and then go offline before converting. If there is no file-sized request and the tool still works offline, the conversion is local.'
+      },
+      {
+        question: 'Does Nexvert use any tracking?',
+        answer: 'Nexvert uses Google Analytics to measure page visits. It does not receive the contents of your files. In the EEA, the UK and Switzerland analytics stays off until you accept it, and you can decline it in the consent banner.'
+      },
+      {
+        question: 'Is client-side conversion slower?',
+        answer: 'Often it is faster, because there is no upload or download wait. Very large video files can be slower than on a powerful server, because the work is limited by your own device.'
       }
     ]
   },
@@ -331,7 +385,7 @@ export const GUIDES_DATA: Record<string, GuideArticle> = {
         text: ['How to convert files on Android:'],
         bullets: [
           'Step 1: Open Chrome or your preferred browser on Android.',
-          'Step 2: Visit Nexvert and pick your desired tool (e.g. PDF to Word, HEIC to JPG).',
+          'Step 2: Visit Nexvert and pick your desired tool (e.g. HEIC to JPG, JPG to PDF or Merge PDF).',
           'Step 3: Tap Select File and choose a document or image from your Android Files / Gallery.',
           'Step 4: Tap Convert and download the converted file straight to your Android Downloads folder.'
         ]
@@ -354,7 +408,7 @@ export const GUIDES_DATA: Record<string, GuideArticle> = {
     readTime: '4 min read',
     category: 'Mobile Tutorials',
     excerpt: 'Use iOS Safari to convert iPhone HEIC photos, scanned PDF documents, and images on the go with 100% privacy.',
-    relatedToolRoute: '/heic-to-jpg',
+    relatedToolRoute: '/',
     sections: [
       {
         heading: 'Easy iOS File Conversions in Safari',
@@ -384,31 +438,56 @@ export const GUIDES_DATA: Record<string, GuideArticle> = {
   'how-to-convert-pdf-without-installing-software': {
     slug: 'how-to-convert-pdf-without-installing-software',
     title: 'How to Convert PDF Without Installing Software — Nexvert',
-    metaDescription: 'Learn how to convert PDF documents to Word, JPG, PNG, and text for free without installing heavy desktop programs or browser extensions.',
+    metaDescription: 'Which PDF jobs you can do in a browser without installing software: make PDFs from Word, images or Markdown, merge, split, reorder, fill forms, and extract text with OCR.',
     h1: 'How to Convert PDF Without Installing Software',
     date: 'August 07, 2026',
     readTime: '4 min read',
     category: 'PDF Tutorials',
-    excerpt: 'Avoid expensive Adobe subscriptions and heavy desktop software. Convert PDF files instantly in your modern browser with full privacy.',
-    relatedToolRoute: '/pdf-to-word',
+    excerpt: 'Make, edit and extract text from PDFs in your browser, on locked-down work PCs and Chromebooks, without installing a desktop program.',
+    relatedToolRoute: '/pdf-tools/',
     sections: [
       {
-        heading: 'Why You Don’t Need Desktop PDF Converters Anymore',
+        heading: 'Why you may not need a desktop PDF program',
         text: [
-          'Traditional PDF software like Adobe Acrobat DC requires complex installation, system administrator permissions, and costly recurring subscriptions. Modern web browsers are powerful enough to execute PDF parsing directly inside client memory.'
+          'Desktop PDF suites need installation, sometimes administrator rights, and often a subscription. On a school laptop, a work PC with install restrictions, or a Chromebook, that may not be an option. Modern browsers can parse and write PDF files themselves, so many everyday PDF jobs can run in a web page instead.'
         ]
       },
       {
-        heading: 'How In-Browser PDF Conversion Works',
+        heading: 'How in-browser PDF tools work',
         text: [
-          'Nexvert uses lightweight WebAssembly (WASM) and PDF rendering engines. When you load our site, the converter code executes inside your browser sandbox, allowing you to convert PDFs to DOCX, JPG, PNG, or EPUB without installing a single program.'
+          'Nexvert loads its PDF code into your browser tab. PDF editing uses pdf-lib, page rendering uses PDF.js, and text recognition uses Tesseract compiled to WebAssembly. Your PDF is processed in the tab’s memory and the result downloads straight to your device. The file is not uploaded.'
+        ]
+      },
+      {
+        heading: 'What you can do with PDFs in Nexvert',
+        text: ['Each of these runs in the browser with no install:'],
+        bullets: [
+          'Create PDFs: Word (DOCX) to PDF, JPG and other images to PDF, and Markdown or plain text to PDF.',
+          'Combine and split: merge several PDFs into one, or split a PDF into single pages or page ranges.',
+          'Rearrange pages: reorder, rotate, crop, remove or extract pages.',
+          'Edit and finish: fill form fields, flatten forms, add a watermark, edit metadata, or resize pages to A4 or Letter.',
+          'Get the text out: PDF OCR reads the text from scanned PDFs page by page and saves it as a TXT file.'
+        ]
+      },
+      {
+        heading: 'What it does not do (yet)',
+        text: [
+          'Nexvert does not currently convert PDFs into Word, JPG, PNG or EPUB. Turning a PDF back into an editable Word document is one of the hardest conversions there is, and server-side engines still do it better than browser code. If you need that and the file is not sensitive, a dedicated online service or a desktop suite is the better tool. To get the text out of a PDF, use PDF OCR.'
         ]
       }
     ],
     faqs: [
       {
-        question: 'Can I convert PDFs on school or work computers that block software installs?',
-        answer: 'Yes! Because Nexvert runs entirely in your web browser, it works on locked-down office PCs and Chromebooks.'
+        question: 'Can I edit PDFs on school or work computers that block software installs?',
+        answer: 'Yes. Nexvert runs entirely in the web browser, so it works on locked-down office PCs and Chromebooks as long as the site itself is not blocked.'
+      },
+      {
+        question: 'Can Nexvert convert a PDF to Word or JPG?',
+        answer: 'Not at the moment. Nexvert can create PDFs from Word files and images, edit and reorganise PDFs, and extract text from PDFs with OCR, but it does not convert PDFs into Word, JPG or PNG.'
+      },
+      {
+        question: 'Is my PDF uploaded anywhere?',
+        answer: 'No. The PDF is read and processed inside your browser tab and the result downloads directly to your device.'
       }
     ]
   },
@@ -458,7 +537,7 @@ export const GUIDES_DATA: Record<string, GuideArticle> = {
     readTime: '4 min read',
     category: 'Document Formats',
     excerpt: 'Discover when to format your files as standardized PDF documents versus single-layer JPG images for printing, forms, and digital sharing.',
-    relatedToolRoute: '/pdf-to-jpg',
+    relatedToolRoute: '/jpg-to-pdf/',
     sections: [
       {
         heading: 'Document Container vs Image Bitmaps',
@@ -479,7 +558,7 @@ export const GUIDES_DATA: Record<string, GuideArticle> = {
     faqs: [
       {
         question: 'Can I convert a multi-page PDF into JPG images?',
-        answer: 'Yes! Our PDF to JPG tool extracts each page of your PDF into a high-resolution JPG image file.'
+        answer: 'Not with Nexvert at the moment: it does not convert PDF pages into JPG images. It can go the other way, turning JPG images into a PDF, and its PDF OCR tool extracts the text from a PDF.'
       }
     ]
   }

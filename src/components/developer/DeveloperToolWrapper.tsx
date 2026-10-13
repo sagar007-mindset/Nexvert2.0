@@ -6,6 +6,7 @@
 import React from 'react';
 import { ChevronRight, Home, ShieldCheck, Cpu, ArrowLeft, ArrowRight } from 'lucide-react';
 import { getConverterConfig } from '../../config/converters.config';
+import { resolveRelatedTools, toolHref } from '../../config/tool-links';
 
 interface DeveloperToolWrapperProps {
   toolId: string;
@@ -20,9 +21,9 @@ export default function DeveloperToolWrapper({
 }: DeveloperToolWrapperProps) {
   const config = getConverterConfig(toolId);
 
-  const relatedTools = (config?.relatedToolIds || [])
-    .map((id) => getConverterConfig(id))
-    .filter(Boolean);
+  // Resolved through tool-links so alias tools point at their canonical page, and rendered as
+  // real <a href> links: divs with onClick are invisible to search crawlers.
+  const relatedTools = config ? resolveRelatedTools(config.relatedToolIds, config) : [];
 
   return (
     <div className="w-full max-w-5xl mx-auto px-2 sm:px-4 py-4 sm:py-8">
@@ -48,18 +49,22 @@ export default function DeveloperToolWrapper({
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
             {relatedTools.slice(0, 4).map((rel) => (
-              <div
-                key={rel!.id}
-                onClick={() => onNavigate(rel!.route)}
-                className="p-3 rounded-xl border border-slate-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 hover:border-red-500/40 dark:hover:border-red-500/40 cursor-pointer transition-all hover:shadow-xs group"
+              <a
+                key={rel.id}
+                href={toolHref(rel)}
+                onClick={(e) => {
+                  e.preventDefault();
+                  onNavigate(toolHref(rel));
+                }}
+                className="block p-3 rounded-xl border border-slate-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 hover:border-red-500/40 dark:hover:border-red-500/40 cursor-pointer transition-all hover:shadow-xs group"
               >
                 <div className="text-xs font-bold text-slate-900 dark:text-white group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors truncate">
-                  {rel!.title}
+                  {rel.title}
                 </div>
                 <div className="text-[11px] text-slate-500 dark:text-zinc-400 mt-1 line-clamp-2 leading-relaxed">
-                  {rel!.description}
+                  {rel.description}
                 </div>
-              </div>
+              </a>
             ))}
           </div>
         </div>

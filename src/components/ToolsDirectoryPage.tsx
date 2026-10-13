@@ -6,6 +6,7 @@
 import React, { useState, useMemo } from 'react';
 import { CONVERTER_TOOLS, ConverterToolConfig } from '../config/converters.config';
 import { TOTAL_TOOLS_COUNT } from '../config/navigation.config';
+import { isAliasTool, toolHref } from '../config/tool-links';
 import Breadcrumbs from './Breadcrumbs';
 import {
   Search,
@@ -33,7 +34,8 @@ export default function ToolsDirectoryPage({ categoryFilter, onNavigate }: Tools
   const [selectedPillar, setSelectedPillar] = useState<string>(categoryFilter || 'All');
 
   const allTools = useMemo(() => {
-    return Object.values(CONVERTER_TOOLS);
+    // Alias routes are listed once, under their canonical tool.
+    return Object.values(CONVERTER_TOOLS).filter((t) => !isAliasTool(t));
   }, []);
 
   // Map any tool into one of the 6 canonical pillars:
@@ -294,10 +296,10 @@ export default function ToolsDirectoryPage({ categoryFilter, onNavigate }: Tools
                     </div>
 
                     <a
-                      href={tool.route}
+                      href={toolHref(tool)}
                       onClick={(e) => {
                         e.preventDefault();
-                        onNavigate(tool.route);
+                        onNavigate(toolHref(tool));
                       }}
                       className="px-3.5 py-1.5 bg-red-600 hover:bg-red-700 text-white rounded-xl text-xs font-bold flex items-center space-x-1 transition-all cursor-pointer shadow-xs shrink-0"
                     >

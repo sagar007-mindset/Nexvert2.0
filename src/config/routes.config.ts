@@ -24,7 +24,7 @@ export const PUBLIC_ROUTES: RouteConfig[] = [
   {
     path: '/',
     title: 'Nexvert: Free Online File Converter for PDF, Images, Video & Audio',
-    description: 'Convert PDF, JPG, PNG, HEIC, WEBP, MP4, MP3 and 50+ formats for free. 190+ online tools that run in your browser — no uploads, no sign-up, no watermarks.',
+    description: 'Convert PDF, JPG, PNG, HEIC, WEBP, MP4, MP3 and 50+ formats for free. 180+ online tools that run in your browser — no uploads, no sign-up, no watermarks.',
     category: 'core',
     sitemapGroup: 'pages'
   },
